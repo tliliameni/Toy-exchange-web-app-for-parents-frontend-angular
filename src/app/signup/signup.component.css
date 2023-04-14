@@ -1,0 +1,128 @@
+.login-page {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-spacer {
+  flex: 1 1 auto;
+}
+.mat-toolbar.mat-primary {
+  background:#F0FEFF;
+  color: #1a1616;
+  z-index: 100;
+}
+.lab1{
+  text-align: center;
+  color: #4E7D64;
+  font-size: 35px;
+  font-family: "Roboto", sans-serif;
+}
+.lab2{
+  text-align: center;
+  color: #CDA7C6;
+  padding-top: 2%;
+  margin-bottom: 8%;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #F0FEFF;
+  max-width: 45%;
+  max-height: 100%;
+  width: 100%;
+
+  margin-bottom: 6%;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #7cad92;
+  width: 62%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  color: white;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+input[type="checkbox"] {
+  display: inline-block;
+
+
+}
+.check {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  border: 0;
+
+
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #CDA7C6;
+  width: 65%;
+  border: 0;
+  padding: 15px;
+  color: white;
+  font-size: 14px;
+  font-family: 'Lexend Deca';
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.form button:hover,.form button:active,.form button:focus {
+  background: #999;
+}
+
+.message {
+  margin: 15px 0 0;
+  color: #999;
+  font-size: 14px;
+}
+
+.message a {
+  color: #4E7D64;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 480px) {
+  .form {
+    padding: 30px;
+  }
+
+  .form button {
+    padding: 10px;
+  }
+
+  .message {
+    font-size: 12px;
+  }
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+
+
+
+  display:-webkit-box;
+
+padding-left: 20%;
+
+  }

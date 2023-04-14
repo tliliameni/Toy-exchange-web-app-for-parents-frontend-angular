@@ -1,0 +1,58 @@
+.header {
+  margin-left: 86%;
+  align-items: center;
+
+}
+
+
+.mat-drawer-container {
+  background-color: white;
+  color: rgba(241, 233, 233, 0.87);
+}
+button{
+  background-color: #547f68;
+color: white;
+border: none;
+margin-top: 1%;
+font-family: 'Nunito Sans';
+font-style: normal;
+margin-left: 7%;
+}
+button:hover, button:active,button:focus {
+  background: #CDA7C6;
+}
+
+.username {
+
+  margin-left: 3px;
+  font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 19px;
+line-height: 21px;
+/* identical to box height */
+
+
+/* gray-900 */
+
+color: #111827;
+
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin-left: 60%;
+    align-items: center;
+
+  }
+}
+.mat-mdc-menu-item.mdc-list-item {
+  align-items: center;
+  margin-left: 0;
+  background-color: transparent;
+  padding: 10px;
+  margin-top: 0;
+}
+.mdc-menu-surface {
+  margin: 7px;
+}

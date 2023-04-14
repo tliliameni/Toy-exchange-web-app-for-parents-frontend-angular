@@ -1,0 +1,40 @@
+<ngb-carousel
+ [showNavigationArrows]="true"
+ [showNavigationIndicators]="true"
+ [interval]="12000"
+ [keyboard]="true"
+
+ [activeId]="'secondSlide'"
+ >
+    <ng-template ngbSlide id="firstSlide">
+      <div class="picsum-img-wrapper">
+        <img src="../../assets/images/toy2.jpg" alt="Angular Carousel 1" width="30%" height="20%">
+      </div>
+      <div class="carousel-caption">
+
+					<div class="row">
+						<div class="col-xl-6 col-lg-7 text-white">
+							<span>Toy 1</span>
+            </div>
+					</div>
+
+
+      </div>
+    </ng-template>
+    <ng-template ngbSlide id="secondSlide">
+      <div class="picsum-img-wrapper">
+        <img src="../../assets/images/toy5.jpg" alt="Angular Carousel 2">
+      </div>
+      <div class="carousel-caption">
+
+						<div class="col-xl-6 col-lg-7 text-white">
+							<div class="col-xl-6 col-lg-7 text-white">
+								<h1>Toy 2</h1>
+
+							</div>
+						</div>
+					</div>
+
+
+    </ng-template>
+  </ngb-carousel>

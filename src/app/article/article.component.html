@@ -1,0 +1,39 @@
+<app-header></app-header>
+<img src="../../assets/images/bandrole.jpg" class="banderol" >
+
+
+
+<div class="container">
+  <div class="top-middle">
+    <h1>Find Toys now! </h1>
+    <p>Exchange toys or sell them</p>
+    <p>Create account first so you can create your toy article</p><p>you can consult the articles</p></div>
+    <div class="search-container">
+      <mat-form-field>
+        <input matInput type="text" placeholder="Search article" [(ngModel)]="searchQuery">
+        <button mat-icon-button matSuffix (click)="searchArticle()">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let article of articlesList.reverse() | paginate: { itemsPerPage: 9, currentPage: p }">
+        <div class="card">
+          <img [src]="article.imageDataUrl" class="card-img-top" alt="..." style=" display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 80%;margin-top:2%">
+          <div class="card-body">
+            <h5 class="card-title">{{ article.title }}</h5>
+            <p class="card-text truncate" [ngClass]="{'expanded': article.expanded}">
+              {{ article.description }}
+              <span *ngIf="!article.expanded">...</span>
+            </p>
+            <a href="#" class="btn btn-primary read-more" (click)="article.expanded = !article.expanded" *ngIf="!article.expanded">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ <pagination-controls (pageChange)="p = $event"></pagination-controls>
+ <app-footer></app-footer>

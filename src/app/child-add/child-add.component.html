@@ -1,0 +1,37 @@
+<div>
+  <mat-toolbar color="primary" class="t">
+    <mat-toolbar-row>
+      <a href=""><span><img src="../../assets/images/logo.png" style=" width: 25%;"></span></a>
+
+
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+<div class="login-page" style="background-color: #F0FEFF;">
+  <div class="form">
+<form (ngSubmit)="onSubmit(myform)" #myform="ngForm">
+  <label class="lab1">Create child</label>
+  <label class="lab2">Fill the informations please to help us !</label>
+
+  <input type="text"  placeholder="Age" name="Age" required>
+  <select name="gender" required  placeholder="gender">
+    <option value="gender">Male</option>
+    <option value="female">Female</option>
+  </select>
+
+  <select name="state">
+    <option value="Normal">Normal</option>
+    <option value="Autistic">Autistic</option>
+    <option value="ADHD">ADHD</option>
+    <option value="special needs">With special needs</option>
+  </select>
+  <button [disabled]="!myform.valid">Create</button>
+  <div *ngIf="isFormSubmitted">
+    child Created!
+  </div>
+</form>
+</div>
+</div>
+<div class="footer" #footer>
+  <img width="75%" height="80%" src="../../assets/images/childadd1.png">
+ </div>

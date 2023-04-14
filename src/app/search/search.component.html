@@ -1,0 +1,11 @@
+<mat-form-field>
+  <mat-select [formControl]="websiteCtrl" placeholder="Bank" #singleSelect>
+    <mat-option>
+      <ngx-mat-select-search [formControl]="websiteFilterCtrl"></ngx-mat-select-search>
+    </mat-option>
+
+    <mat-option *ngFor="let website in filteredWebsites | async" [value]="website">
+      {{website.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

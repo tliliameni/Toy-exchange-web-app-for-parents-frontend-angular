@@ -1,0 +1,55 @@
+<div >
+<div class="search-container">
+  <mat-form-field>
+    <input matInput type="text" placeholder="Search news" [(ngModel)]="searchQuery">
+    <button mat-icon-button matSuffix (click)="searchNews()">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-fab color="primary" class="add-btn" aria-label="Add" matTooltip="Add Item"routerLink="/admin/createNews">
+    <mat-icon>add</mat-icon>
+  </button>
+
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of newsList.reverse() | paginate: { itemsPerPage: 7, currentPage: p }">
+      <td>
+        <img [src]="item.imageDataUrl" class="card-img-top" alt="..." style=" display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;
+          margin-top:2%">
+      </td>
+      <td>{{ item.title }}</td>
+      <td>
+        <p class="card-text truncate" [ngClass]="{'expanded': item.expanded}">
+          {{ item.description }}
+          <span *ngIf="!item.expanded">...</span>
+        </p>
+      </td>
+      <td>
+        <button mat-icon-button color="primary" aria-label="View">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <button mat-icon-button color="accent" aria-label="Edit" (click)="editNews(item.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" aria-label="Delete" (click)="openConfirmationDialog(item.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class='contain' ><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
+</div>

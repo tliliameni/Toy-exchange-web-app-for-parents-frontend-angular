@@ -1,0 +1,40 @@
+<div>
+<mat-toolbar color="primary" class="t">
+  <mat-toolbar-row>
+   <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+      <mat-icon aria-hidden="false" aria-label="Example home icon" >menu</mat-icon>
+    </button>
+    <span><img src="../../assets/images/logo.png" style=" width: 29%; height:20%;"></span>
+    <span class="menu-spacer"></span>
+
+    <div fxShow="true" fxHide.lt-md >
+
+      <span><a href="" mat-button> Home </a>     </span>
+      <span>|</span><span><a href="articles" mat-button> Articles </a>    </span>
+     <span>|</span> <span><a href="news" mat-button>News</a>    </span>
+     <span>|</span><span><a href="contact" mat-button> Contact </a>    </span>
+     <span>|</span> <span><a href="aboutus" mat-button>about us</a>    </span>
+
+     <ng-container *ngIf="!isLoggedIn()">
+      <!-- Show content for non-logged-in users -->
+
+  <span> <button class="btt"><a href="login" mat-button>Login</a></button></span>  </ng-container>
+   <div fxShow="true" fxHide.gt-sm="true">
+    <a href="#" (click)="sidenav.toggle()">Show Side Menu</a>
+  </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+      <a href="#" mat-list-item> Home</a>
+      <a href="#" mat-list-item>Articles</a>
+      <a href="news" mat-list-item>News</a>
+      <a href="#" mat-list-item>Sign up</a>
+    </mat-nav-list>
+  </mat-sidenav>
+</mat-sidenav-container>
+</div>

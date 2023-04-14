@@ -1,0 +1,53 @@
+
+<div class="card-container">
+  <div class="card">
+    <div class="card-image">
+      <img src="../../assets/images/u_shopping-bag.png" alt="Card Image">
+    </div>
+    <div class="card-content">
+      <h2>Total articles</h2>
+      <p>2,456</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-image">
+      <img src="../../assets/images/u_users-alt.png" alt="Card Image">
+
+    <div class="card-content">
+      <h2>Total accounts</h2>
+      </div>
+      <p>456</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-image">
+      <img src="../../assets/images/u_list-ui-alt.png" alt="Card Image">
+    </div>
+    <div class="card-content">
+      <h2>Total articles</h2>
+      <p>2,456</p>
+  </div>
+  </div>
+</div>
+  <div class="container"><h3>Accounts requests</h3>
+
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+          <th>username</th>
+          <th style="padding-left: 28%;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows">
+          <td>{{ row.col1 }}</td>
+          <td>
+            <button class="btn-hover" >{{ row.col2 }}</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+

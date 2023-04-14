@@ -1,0 +1,18 @@
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+  background-color: #4E7D64;
+  color: white;
+  text-align:center;
+
+  }
+.copyright{
+ margin-bottom: 0;
+ padding-top:3%;
+}
+.icons{
+  padding-top: 0%;
+padding-left: 50%;
+}

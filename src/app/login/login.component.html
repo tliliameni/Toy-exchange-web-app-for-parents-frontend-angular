@@ -1,0 +1,26 @@
+<div>
+  <mat-toolbar color="primary" class="t">
+    <mat-toolbar-row>
+      <a href=""><span><img src="../../assets/images/logo.png" style=" width: 25%;"></span></a>
+
+
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+ <div class="login-page" style="background-color: #F0FEFF;">
+    <div class="form">
+      <form class="login-form" #loginForm="ngForm">
+        <div class="container"><label class="lab1">Sign in</label>
+        <label class="lab2">Sign in and start exchanging and selling toys!</label></div>
+        <input type="text" placeholder="username" required name="username" [(ngModel)]="username" email/>
+        <input type="password" placeholder="password" required name="password" [(ngModel)]="password"/>
+        <button [disabled]="!loginForm.valid">login</button>
+        <p class="message">Not registered? <a href="signup">Create an account</a></p>
+
+      </form>
+    </div>
+  </div>
+  <div class="footer" #footer>
+   <img  height="70%"  width="80%"src="../../assets/images/icontoy.png">
+  </div>

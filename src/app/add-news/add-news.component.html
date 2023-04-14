@@ -1,0 +1,40 @@
+
+
+<div class="card-container">
+  <div class="card">
+    <form [formGroup]="newsForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label>Title:</label>
+        <input type="text" formControlName="title" />
+        <div *ngIf="newsForm.get('title').invalid && (newsForm.get('title').dirty || newsForm.get('title').touched)">
+          <div *ngIf="newsForm.get('title').errors['required']" style="color:red">Title is required.</div>
+        </div>
+      </div>
+      <div>
+        <label>Description:</label>
+        <textarea formControlName="description"></textarea>
+        <div *ngIf="newsForm.get('description').invalid && (newsForm.get('description').dirty || newsForm.get('description').touched)">
+          <div *ngIf="newsForm.get('description').errors['required']"style="color:red">Description is required.</div>
+        </div>
+      </div>
+      <div>
+        <label>Image:</label>
+        <input type="file" (change)="onFileSelected($event)" />
+        <div *ngIf="newsForm.get('image').invalid && (newsForm.get('image').dirty || newsForm.get('image').touched)">
+          <div *ngIf="newsForm.get('image').errors['required']"style="color:red">Image is required.</div>
+        </div>
+        <img [src]="sanitizedImageData" *ngIf="imageData" />
+      </div>
+      <button type="submit" (ngSubmit)="onSubmit()">Create News</button>
+    </form>
+
+</div>
+</div>
+<button mat-icon-button color="primary" class="back-btn" aria-label="Go back" matTooltip="Go Back" style="margin-left:41%; width:30%" routerLink="/admin/newsList">
+  <mat-icon>arrow_back</mat-icon>
+ Go back to news List
+</button>
+
+
+
+

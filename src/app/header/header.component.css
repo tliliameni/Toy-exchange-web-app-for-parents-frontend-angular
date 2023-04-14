@@ -1,0 +1,39 @@
+.menu-spacer {
+  flex: 2 2 auto;
+}
+.mat-toolbar.mat-primary {
+  background:white;
+  color: #547f68;
+  z-index: 100;
+  font-family: 'Nunito Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 25px;
+}
+.btt:hover, .btt:active,.btt:focus {
+  background: #CDA7C6;
+}
+
+
+.btt{
+margin-left: 55%;
+background-color: #547f68;
+color: white;
+border: none;
+font-family: 'Nunito Sans';
+font-style: normal;
+}
+.mat-drawer-container {
+  background-color: white;
+  color: rgba(0,0,0,.87);
+}
+.mat-toolbar, .mat-toolbar h1, .mat-toolbar h2, .mat-toolbar h3, .mat-toolbar h4, .mat-toolbar h5, .mat-toolbar h6 {
+  padding-right: 27%;
+  font-size: 25px;
+  letter-spacing:0;
+
+ }
+ span + span {
+  margin-left: 20px;
+}

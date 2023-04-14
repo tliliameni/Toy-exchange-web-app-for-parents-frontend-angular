@@ -1,0 +1,58 @@
+<nav class="sidebar">
+  <ul class="sidebar-nav">
+    <li class="sidebar-header">
+     <img src="../../assets/images/logo.png" >
+    </li>
+    <li class="nav-item">
+      <a routerLink="/admin" routerLinkActive="active" class="nav-link">
+        <i class="fa fa-home"><mat-icon>home</mat-icon></i>
+        <span> Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/admin/users" routerLinkActive="active" class="nav-link">
+        <i class="fa fa-users"><mat-icon>account_box</mat-icon></i>
+        <span> Users</span>
+      </a>
+    </li>
+    <li class="nav-item">
+
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                <i class="fa fa-shopping-cart"><mat-icon>shop_two</mat-icon></i>
+                <span> Articles</span>
+
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <li class="nav-item">
+            <a routerLink="/admin/category" routerLinkActive="active" class="nav-link">
+              <i class="fa fa-shopping-cart"><mat-icon>list</mat-icon></i>
+              <span> Catgories</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/admin/article" routerLinkActive="active" class="nav-link">
+              <i class="fa fa-shopping-cart"><mat-icon>perm_media</mat-icon></i>
+              <span> Articles</span>
+            </a>
+          </li>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/admin/newsList" routerLinkActive="active" class="nav-link">
+        <i class="fa fa-shopping-cart"><mat-icon>live_tv</mat-icon></i>
+        <span> News</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/newsList" routerLinkActive="active" class="nav-link">
+        <i class="fa fa-shopping-cart"><mat-icon>contact_support</mat-icon></i>
+        <span> About us</span>
+      </a>
+    </li>
+  </ul>
+</nav>

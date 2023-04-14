@@ -1,0 +1,31 @@
+
+  <mat-toolbar color="primary" class="t">
+    <mat-toolbar-row>
+      <a href=""><span><img src="../../assets/images/logo.png" style=" width: 25%;"></span></a>
+
+
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+ <div class="login-page" style="background-color: #F0FEFF;">
+    <div class="form">
+      <form class="login-form" #loginForm="ngForm">
+        <div class="container">
+  <label class="lab1" >Sign Up</label>
+  <label class="lab2">Sign up and start exchanging and selling toys!</label></div>
+ <input type="text" placeholder="email adresse" required name="username" [(ngModel)]="username" email/>
+
+        <label class="check"> <input type="{{ showPassword ? 'text' : 'password' }}"  [(ngModel)]="password" name="password" minlength="8" placeholder ="Password">
+        </label>
+        <label class="check">Show password</label><input type="checkbox" (click)="toggleShowPassword()">
+    <label class="check"> <input type="password" placeholder="confirm password" required name="confirmpassword" [(ngModel)]="confirmpassword"/></label>
+        <label class="check">Show password</label><input type="checkbox" (click)="toggleShowPassword()">
+        <button [disabled]="!loginForm.valid" style="color:'#4E7D64'" (click)="onSubmit()">sign up</button>
+        <p class="message">Already have an account? <a href="login">Login</a></p>
+      </form>
+    </div>
+  </div>
+  <div class="footer" #footer>
+   <img  height="70%"  width="80%"src="../../assets/images/icontoy.png">
+  </div>

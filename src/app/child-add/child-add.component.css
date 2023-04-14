@@ -1,0 +1,146 @@
+/* Default styles */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+}
+
+select {
+  margin-bottom: 10px;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+}
+
+/* Responsive styles for smaller screens */
+@media only screen and (max-width: 600px) {
+  label {
+    font-size: 14px;
+  }
+
+  select {
+    font-size: 14px;
+  }
+
+  button[type="submit"] {
+    font-size: 16px;
+  }
+}
+.login-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-spacer {
+  flex: 1 1 auto;
+}
+.mat-toolbar.mat-primary {
+  background:#F0FEFF;
+
+  z-index: 100;
+  position: fixed;
+}
+.lab1{
+  text-align: center;
+  color: #CDA7C6;
+  margin-bottom: 3%;
+  font-size: 35px;
+  font-family: "Roboto", sans-serif;
+}
+.lab2{
+  text-align: center;
+  color: #4E7D64;
+  margin-bottom: 10%;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #F0FEFF;
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
+
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form input, .form select {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #CDA7C6;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  color: white;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4E7D64;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: white;
+  font-size: 14px;
+  font-family: 'Lexend Deca';
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.form button:hover,.form button:active,.form button:focus {
+  background: #CDA7C6;
+}
+
+.message {
+  margin: 15px 0 0;
+  color: #999;
+  font-size: 14px;
+}
+
+.message a {
+  color: #4E7D64;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 480px) {
+  .form {
+    padding: 30px;
+  }
+
+  .form button {
+    padding: 10px;
+  }
+
+  .message {
+    font-size: 12px;
+  }
+}
+.footer {
+  position: fixed;
+  bottom: 3%;
+
+
+
+
+
+  display:-webkit-box;
+
+padding-left: 70%;
+
+  }

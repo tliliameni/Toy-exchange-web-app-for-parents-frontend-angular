@@ -1,0 +1,40 @@
+<div >
+  <div class="search-container">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Search Category" [(ngModel)]="searchQuery">
+      <button mat-icon-button matSuffix (click)="searchCategories()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-fab color="primary" class="add-btn" aria-label="Add" matTooltip="Add Item"routerLink="/admin/addcategory">
+      <mat-icon>add</mat-icon>
+    </button>
+
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of CategoriesList.reverse() | paginate: { itemsPerPage: 7, currentPage: p }">
+
+        <td>{{ item.nom }}</td>
+
+        <td>
+
+          <button mat-icon-button color="accent" aria-label="Edit" (click)="editCategories(item.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" aria-label="Delete" (click)="openConfirmationDialog(item.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class='contain' ><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
+  </div>

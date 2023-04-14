@@ -1,0 +1,67 @@
+<app-header></app-header>
+<img src="../../assets/images/bandrole.jpg" class="banderol" >
+
+
+
+<div class="container">
+  <div class="top-middle">
+    <h1>Our News</h1>
+    <p>Work on your child mental health!</p>
+    <p>Explore news and informations about
+    play therapy </p><p>and child behavior now!</p></div>
+    <div class="search-container">
+      <mat-form-field>
+        <input matInput type="text" placeholder="Search news" [(ngModel)]="searchQuery">
+        <button mat-icon-button matSuffix (click)="searchNews()">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let news of newsList.reverse() | paginate: { itemsPerPage: 9, currentPage: p }">
+        <div class="card">
+          <img [src]="news.imageDataUrl" class="card-img-top" alt="..." style=" display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 80%;margin-top:2%">
+          <div class="card-body">
+            <h5 class="card-title">{{ news.title }}</h5>
+            <p class="card-text truncate" [ngClass]="{'expanded': news.expanded}">
+              {{ news.description }}
+              <span *ngIf="!news.expanded">...</span>
+            </p>
+            <a href="#" class="btn btn-primary read-more" (click)="news.expanded = !news.expanded" *ngIf="!news.expanded">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+ <!-- <div class="card-group" >
+    <div class="card">
+      <img [src]="news.imageDataUrl" class="card-img-top" alt="...">
+      <div class="label">Label 1</div>
+      <button class="details-btn">See Details</button>
+    </div>
+    <div class="card">
+      <img src="image-2.jpg" alt="Image 2">
+      <div class="label">Label 2</div>
+      <button class="details-btn">See Details</button>
+    </div>
+  </div>
+  <div class="card-group">
+    <div class="card">
+      <img src="image-3.jpg" alt="Image 3">
+      <div class="label">Label 3</div>
+      <button class="details-btn">See Details</button>
+    </div>
+    <div class="card">
+      <img src="image-4.jpg" alt="Image 4">
+      <div class="label">Label 4</div>
+      <button class="details-btn">See Details</button>
+    </div>
+  </div>
+</div>-->
+
+<app-footer></app-footer>

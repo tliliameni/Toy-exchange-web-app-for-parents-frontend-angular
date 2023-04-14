@@ -1,0 +1,34 @@
+<app-header></app-header>
+<img src="../../assets/images/bandrole.jpg" class="banderol" >
+<div class="top-middle">
+  <h1>Contact us! <img src="../../assets/images/contactus.avif" width="15%" height="15%" style="align-items: center;"></h1>
+
+  <p>Send us your question and we will respond to you by email! </p>
+
+</div>
+<form (submit)="onSubmit()" #contactForm="ngForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required [(ngModel)]="formData.name" #name="ngModel">
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error-message">
+      <div *ngIf="name.errors?.['required']">Name is required</div>
+    </div>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required [(ngModel)]="formData.email" #email="ngModel">
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+      <div *ngIf="email.errors?.['required']">Email is required</div>
+      <div *ngIf="email.errors?.['email']">Invalid email format</div>
+    </div>
+  </div>
+  <div>
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required [(ngModel)]="formData.message" #message="ngModel"></textarea>
+    <div *ngIf="message.invalid && (message.dirty || message.touched)" class="error-message">
+      <div *ngIf="message.errors?.['required']">Message is required</div>
+    </div>
+  </div>
+  <button class="button" type="submit" [disabled]="contactForm.invalid" >Send Message</button>
+</form>
+<app-footer></app-footer>
