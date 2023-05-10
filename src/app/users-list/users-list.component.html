@@ -6,7 +6,7 @@
     </div>
     <div class="card-content">
       <h2>Total articles</h2>
-      <p>2,456</p>
+      <p>{{ articleCount }} Articles</p>
     </div>
   </div>
   <div class="card">
@@ -16,7 +16,7 @@
     <div class="card-content">
       <h2>Total accounts</h2>
       </div>
-      <p>456</p>
+      <p>{{ usercount }} Accounts</p>
     </div>
   </div>
   <div class="card">
@@ -24,25 +24,44 @@
       <img src="../../assets/images/u_list-ui-alt.png" alt="Card Image">
     </div>
     <div class="card-content">
-      <h2>Total articles</h2>
-      <p>2,456</p>
+      <h2>Total News</h2>
+      <p>{{newsCount}}</p>
   </div>
   </div>
+  <h2>New Users for this week:</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let newUserCount of newUserCounts">
+      <td>{{ newUserCount.date }}</td>
+      <td>{{ newUserCount.count }}</td>
+    </tr>
+  </tbody>
+</table>
 </div>
-  <div class="container"><h3>Accounts requests</h3>
+
+
+  <div class="container"><h3>Accounts</h3>
 
     <table class="table table-responsive">
       <thead>
         <tr>
           <th>username</th>
-          <th style="padding-left: 28%;">Action</th>
+          <th>creation date</th>
+          <th style="padding-left: 12%;">Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let row of rows">
-          <td>{{ row.col1 }}</td>
+        <tr *ngFor="let user of users">
+          <td>{{ user.username }}</td>
+          <td>{{ user.createdAt }}</td>
           <td>
-            <button class="btn-hover" >{{ row.col2 }}</button>
+            <button class="btn-hover" (click)="openConfirmationDialog(user.id)" >delete</button>
           </td>
         </tr>
       </tbody>

@@ -6,7 +6,47 @@
   <p>Send us your question and we will respond to you by email! </p>
 
 </div>
-<form (submit)="onSubmit()" #contactForm="ngForm" (ngSubmit)="onSubmit()">
+<div class="email-form">
+  <h2>Send Email</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+    <div class="email-form">
+      <h2>Contact us</h2>
+      <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <div class="form-group">
+          <label for="to">Email address:</label>
+          <input type="email" id="to" formControlName="recipient" placeholder="Enter email" required>
+          <div *ngIf="form.get('recipient')?.invalid && (form.get('recipient')?.dirty || form.get('recipient')?.touched)">
+            <div *ngIf="form.get('recipient')?.errors?.['required']" style="color:red">Email is required!</div>
+            <div *ngIf="form.get('recipient')?.errors?.['email']"  style="color:red">Invalid email!</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject:</label>
+          <input type="text" id="subject" formControlName="subject" placeholder="Enter subject" required>
+          <div *ngIf="form.get('subject')?.invalid && (form.get('subject')?.dirty || form.get('subject')?.touched)">
+            <div *ngIf="form.get('subject')?.errors?.['required']" style="color:red">Subject is required!</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="body">Message:</label>
+          <textarea id="body" formControlName="msgBody" placeholder="Enter message" required></textarea>
+          <div *ngIf="form.get('msgBody')?.invalid && (form.get('msgBody')?.dirty || form.get('msgBody')?.touched)">
+            <div *ngIf="form.get('msgBody')?.errors?.['required']" style="color:red">Message is required!</div>
+          </div>
+        </div>
+
+
+
+        <div class="form-group">
+          <button type="submit" [disabled]="form.invalid">Send</button>
+        </div>
+      </form>
+    </div>
+  </form></div>
+<!--<form (submit)="onSubmit()" #contactForm="ngForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required [(ngModel)]="formData.name" #name="ngModel">
@@ -30,5 +70,5 @@
     </div>
   </div>
   <button class="button" type="submit" [disabled]="contactForm.invalid" >Send Message</button>
-</form>
+</form>-->
 <app-footer></app-footer>

@@ -2,10 +2,8 @@ export class News{
 id:number;
 title!:String;
 description!:String;
-file!:File;
+photo!:String;
 formdata: FormData = new FormData();
-image=this.formdata.append('file', this.file);
-  imageDataUrl: string;
 
 
 }

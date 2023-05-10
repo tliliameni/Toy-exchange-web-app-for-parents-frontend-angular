@@ -1,13 +1,78 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart, ChartConfiguration } from 'chart.js';
+import { DashboardService, NewUserCount } from '../services/dashboard.service';
+import { ArticleService } from '../services/article.service';
+import { HttpClient } from '@angular/common/http';
+import { ChartConfiguration, Chart } from 'chart.js';
+import { data } from 'jquery';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
 
-  public canvas: any;
+export class DashboardComponent implements OnInit {
+  chart: Chart;
+  newUsers: NewUserCount[] = [];
+  daysToShow = 7;
+  legend: {
+    display?: boolean;
+    // add other legend options here if needed
+  };
+  constructor(private myService: DashboardService) {}
+
+  ngOnInit() {
+    this.getNewUsersByDays();
+  }
+
+  getNewUsersByDays() {
+    this.myService.getNewUsersByDays(this.daysToShow).subscribe((data) => {
+      this.newUsers = data;
+      this.initChart();
+      console.log(data);
+    });
+
+
+  }
+  initChart() {
+    const labels = this.newUsers.map((data) => data.date);
+    const data = this.newUsers.map((data) => data.count);
+
+    this.chart = new Chart('canvas', {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            data: data,
+            borderColor: '#3cba9f',
+            fill: false,
+          },
+        ],
+      },
+      options: {
+
+
+        scales: {
+          x: {
+            type: 'linear',
+            display: true,
+            position: 'bottom'
+          },
+          y: {
+            type: 'linear',
+            display: true,
+            position: 'left'
+          }
+        },
+
+
+
+      },
+    });
+  }}
+
+ /* public canvas: any;
   public ctx;
   public datasets: any;
   public data: any;
@@ -428,7 +493,7 @@ export class DashboardComponent implements OnInit {
       },
       options: gradientChartOptionsConfigurationWithTooltipRed
     };
-    this.myChartData = new Chart(this.ctx, config);
+   this.myChartData = new Chart(this.ctx, config);
 
 
     this.canvas = document.getElementById("CountryChart");
@@ -448,3 +513,5 @@ export class DashboardComponent implements OnInit {
     this.myChartData.update();
   }
 }
+
+*/

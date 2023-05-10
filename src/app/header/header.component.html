@@ -1,7 +1,7 @@
 <div>
 <mat-toolbar color="primary" class="t">
   <mat-toolbar-row>
-   <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+   <button mat-icon-button  (click)="toggleSidenav()"  fxShow="true" fxHide.gt-sm>
       <mat-icon aria-hidden="false" aria-label="Example home icon" >menu</mat-icon>
     </button>
     <span><img src="../../assets/images/logo.png" style=" width: 29%; height:20%;"></span>
@@ -15,21 +15,28 @@
      <span>|</span><span><a href="contact" mat-button> Contact </a>    </span>
      <span>|</span> <span><a href="aboutus" mat-button>about us</a>    </span>
 
-     <ng-container *ngIf="!isLoggedIn()">
+
+     <button class="btt" mat-icon-button *ngIf="isLoggedIn" [matMenuTriggerFor]="menu"  style="margin-top:5px;"><mat-icon>account_circle</mat-icon></button>
+     <mat-menu #menu="matMenu"style="width:15px;height:10px;">
+       <button mat-menu-item routerLink="/profile" *ngIf="isLoggedIn"  routerLinkActive="active" class="nav-link"><mat-icon>account_box</mat-icon>{{ username }}</button>
+       <button mat-menu-item href (click)="logout()"*ngIf="isLoggedIn" class="nav-link" ><mat-icon>input</mat-icon> logout</button>
+     </mat-menu>
+
+
       <!-- Show content for non-logged-in users -->
 
-  <span> <button class="btt"><a href="login" mat-button>Login</a></button></span>  </ng-container>
+  <span> <button class="btt" *ngIf="!isLoggedIn"><a href="login" mat-button>Login</a></button></span>
    <div fxShow="true" fxHide.gt-sm="true">
-    <a href="#" (click)="sidenav.toggle()">Show Side Menu</a>
+    <a href="#" (click)="toggle()">Show Side Menu</a>
   </div>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-sidenav-container fxFlexFill>
-  <mat-sidenav #sidenav>
+<mat-sidenav-container fxLayout="column"  (click)="toggleSidenav()"  fxFlexFill  fxLayoutAlign="start stretch" >
+  <mat-sidenav #sidenav  [opened]="isShowing">
     <mat-nav-list>
-      <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+      <a (click)="toggleSidenav()"  href="" mat-list-item>Close</a>
       <a href="#" mat-list-item> Home</a>
       <a href="#" mat-list-item>Articles</a>
       <a href="news" mat-list-item>News</a>

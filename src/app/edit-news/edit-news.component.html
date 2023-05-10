@@ -14,8 +14,8 @@
     <div *ngIf="editForm.get('description').errors['required']"style="color:red">Description is required.</div>
   </div>
 
-  <input type="file" (change)="onFileSelect($event)" enctype="multipart/form-data"/>
-    <div *ngIf="editForm.get('image')"style="color:red"></div>
+  <input type="file" (change)="onFileSelect($event)" enctype="multipart/form-data" (change)="showPreview($event)"/>
+    <div *ngIf="editForm.get('photo')"style="color:red"></div>
   <button type="submit" class="btn btn-primary">Update News Item</button>
 </form>
   </div></div>

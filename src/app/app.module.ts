@@ -19,6 +19,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
@@ -47,6 +48,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UsersListComponent } from './users-list/users-list.component';
 import { NgChartsModule } from 'ng2-charts';
+import Chart from 'chart.js/auto';
 import {MatMenuModule} from '@angular/material/menu';
 import { AdminNewsComponent } from './admin-news/admin-news.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -59,7 +61,19 @@ import { DashChartsComponent } from './dash-charts/dash-charts.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminArticlesComponent } from './admin-articles/admin-articles.component';
 import { CategoryComponent } from './category/category.component';
+import { httpInterceptorProviders } from './_helpers/http.interceptor';
 import { AddCategoryComponent } from './add-category/add-category.component';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { LabelModule } from '@progress/kendo-angular-label';
+import { AdminAboutUsComponent } from './admin-about-us/admin-about-us.component';
+import { ArticleCreateComponent } from './article-create/article-create.component';
+import { ArticleUpdateComponent } from './article-update/article-update.component';
+import { ArticleDetailsComponent } from './article-details/article-details.component';
+import { NewsDetailsComponent } from './news-details/news-details.component';
+import { AvatarComponent } from './avatar/avatar.component';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+
+
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 @NgModule({
   declarations: [
@@ -95,15 +109,29 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
     AdminArticlesComponent,
     CategoryComponent,
     AddCategoryComponent,
+    AdminAboutUsComponent,
+    ArticleCreateComponent,
+    ArticleUpdateComponent,
+    ArticleDetailsComponent,
+    NewsDetailsComponent,
+    AvatarComponent,
+
   ],
   imports: [
     BrowserModule,
     CarouselModule,
     CommonModule,
     MatMenuModule,
+    MatMomentDateModule,
     NgxPaginationModule,
     NgChartsModule,
+ NgChartsModule,
     MatExpansionModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatMenuModule,
+    MatButtonModule,
     MatSnackBarModule,
     MatDialogModule,
     NgbCarouselModule,
@@ -127,10 +155,12 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
     ReactiveFormsModule,
     RouterModule,
     NoopAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    DropDownsModule,
+    LabelModule
 
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,20 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
+import { StorageService } from '../services/storage.service';
+import { CommonModule } from '@angular/common';
+
+
+export class AvatarDialogModule { }
 @Component({
   selector: 'app-profile',
-  template: `
-    <div class="profile">
-      <div class="avatar-container">
-        <img [src]="avatarUrl" alt="Avatar" (click)="chooseAvatar()">
-      </div>
-      <div class="details">
-        <h2>{{name}}</h2>
-        <p>{{email}}</p>
-        <!-- Other profile details here -->
-      </div>
-    </div>
-  `,
+  templateUrl: './profile.component.html',
+  providers: [
+    { provide: MatDialogRef, useValue: {} }
+  ],
   styles: [`
     .profile {
       display: flex;
@@ -26,7 +23,6 @@ import { Inject } from '@angular/core';
       position: relative;
       width: 120px;
       height: 120px;
-      overflow: hidden;
       border-radius: 50%;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
       cursor: pointer;
@@ -44,14 +40,24 @@ import { Inject } from '@angular/core';
   `]
 })
 export class ProfileComponent {
-  avatarUrl = '../../../assets/images/avatar4.jpg';
-  name = 'Ameni Tlili';
-  email = 'amenitlili@gmail.com';
 
-  constructor(public dialog: MatDialog) {}
+  currentUser: any;
+  avatarUrl ='../../assets/images/Group.png' ;
+  avatarOptions = [
+    '../../assets/images/avatar2.jpg',
+    '../../../assets/images/avatar3.jpg',
+    '../../../assets/images/avatar4.jpg',
+  ];
 
-  chooseAvatar() {
-    const dialogRef = this.dialog.open(AvatarDialog, {
+  constructor(private storageService: StorageService, public dialog: MatDialog) { }
+
+  ngOnInit(): void {
+    this.currentUser = this.storageService.getUser();
+    this.avatarUrl = this.currentUser.avatarUrl;
+  }
+
+  setAvatar() {
+    const dialogRef = this.dialog.open(AvatarDialogComponent, {
       width: '400px',
       data: { avatarUrl: this.avatarUrl }
     });
@@ -59,24 +65,26 @@ export class ProfileComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.avatarUrl = result;
+        this.currentUser.avatarUrl = result;
+        this.storageService.saveUser(this.currentUser);
       }
     });
   }
+  updateAvatar(avatar) {
+    this.currentUser.avatarUrl = avatar.url;
+  }
 }
+@NgModule({
+  imports: [
+    CommonModule
+  ]
+})
+export class ProfileComponentModule { }
 
 @Component({
-  selector: 'avatar-dialog',
-  template: `
-    <h2 mat-dialog-title>Choose an Avatar</h2>
-    <div mat-dialog-content class="avatar-options">
-      <div *ngFor="let option of avatarOptions" (click)="selectAvatar(option)">
-        <img [src]="option" alt="Avatar Option">
-      </div>
-    </div>
-    <div mat-dialog-actions>
-      <button mat-button >Cancel</button>
-    </div>
-  `,
+  selector: 'app-avatar-dialog',
+  templateUrl: './avatardialogue.html',
+
   styles: [`
     .avatar-options {
       display: flex;
@@ -99,18 +107,21 @@ export class ProfileComponent {
     }
   `]
 })
-export class AvatarDialog {
-  avatarOptions = [
-    '../../../assets/images/avatar2.jpg',
-    '../../../assets/images/avatar3.jpg',
-    '../../../assets/images/avatar4.jpg',
+export class AvatarDialogComponent {
+  avatarOptions: string[];
 
-  ];
-
-  constructor(public dialogRef: MatDialogRef<AvatarDialog>,
-              @Inject(MAT_DIALOG_DATA) public data: { avatarUrl: string }) {}
+  constructor(
+    public dialogRef: MatDialogRef<AvatarDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { avatarOptions: string[] }
+  ) {
+    this.avatarOptions = data.avatarOptions;
+  }
 
   selectAvatar(option: string) {
     this.dialogRef.close(option);
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
   }
 }

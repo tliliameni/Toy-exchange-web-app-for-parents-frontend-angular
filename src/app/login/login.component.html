@@ -10,15 +10,51 @@
 
  <div class="login-page" style="background-color: #F0FEFF;">
     <div class="form">
-      <form class="login-form" #loginForm="ngForm">
+      <form
+      *ngIf="!isLoggedIn"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
         <div class="container"><label class="lab1">Sign in</label>
         <label class="lab2">Sign in and start exchanging and selling toys!</label></div>
-        <input type="text" placeholder="username" required name="username" [(ngModel)]="username" email/>
-        <input type="password" placeholder="password" required name="password" [(ngModel)]="password"/>
-        <button [disabled]="!loginForm.valid">login</button>
+        <input type="text" placeholder="username" required
+        class="form-control"
+        name="username"
+        [(ngModel)]="form.username"
+        required
+        #username="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
+      />
+      <div *ngIf="username.errors && f.submitted" class="invalid-feedback">
+        Username is required!
+      </div>
+        <input type="password" placeholder="password" required type="password"
+        class="form-control"
+        name="password"
+        [(ngModel)]="form.password"
+        required
+        minlength="6"
+        #password="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+      />
+      <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
+        <div *ngIf="password.errors['required']">Password is required</div>
+        <div *ngIf="password.errors['minlength']">
+          Password must be at least 6 characters
+        </div>
+      </div>
+        <button >login</button>
         <p class="message">Not registered? <a href="signup">Create an account</a></p>
+        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+          Login failed: {{ errorMessage }}
+        </div>
+    </form>
 
-      </form>
+    <div class="alert alert-success" *ngIf="isLoggedIn">
+      Logged in as {{ roles }}.
+    </div>
     </div>
   </div>
   <div class="footer" #footer>

@@ -5,6 +5,9 @@
   justify-content: center;
   align-items: center;
 }
+input{
+  align-items: center;
+}
 .menu-spacer {
   flex: 1 1 auto;
 }
@@ -27,9 +30,52 @@
   font-size: 15px;
   font-family: "Roboto", sans-serif;
 }
+
+
+.password-container {
+  position: relative;
+  width: 100%;
+  margin-left: 50%;
+
+}
+
+.password-input {
+  padding-left: 50%; /* Adjust as necessary */
+}
+
+.btn-password-toggle {
+  position: absolute;
+  top: 50%;
+  padding-right: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  border: none;
+  background-color: transparent;
+}
+
+.password-icon {
+  position: absolute;
+  right: 10%;
+  padding-right: 90%;
+  top: 60%;
+  transform: translateY(-70%);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.hide-password {
+  z-index: -1;
+}
+
+.hide-password {
+  display: none;
+}
+
+
 .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .form {
   position: relative;
@@ -48,8 +94,9 @@
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
+  align-items: center;
   background: #7cad92;
-  width: 62%;
+  width: 50%;
   border: 0;
   margin: 0 0 15px;
   padding: 15px;
@@ -71,26 +118,33 @@ input[type="checkbox"] {
 
 
 }
-.form button {
+.btt{
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
   background: #CDA7C6;
-  width: 65%;
+  width: 25%;
   border: 0;
   padding: 15px;
+  border-radius: 10px;
   color: white;
-  font-size: 14px;
+  font-size: 17px;
+ font-weight: bold;
   font-family: 'Lexend Deca';
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+  margin-top: 2%;
 }
 
 .form button:hover,.form button:active,.form button:focus {
-  background: #999;
-}
+  background: #d5d3d3;
 
+}
+img{
+  height:70%;
+   width:80%;
+}
 .message {
   margin: 15px 0 0;
   color: #999;
@@ -123,6 +177,64 @@ input[type="checkbox"] {
 
   display:-webkit-box;
 
-padding-left: 20%;
+padding-left: 21%;
 
+  }
+  @media screen and ( max-width:990px) and (min-width:300px) {
+    .login-page {
+      flex-direction: column;
+      height: auto;
+    }
+    .btt{
+      width:100%;
+    }
+    .login-page {
+      width: 100%;
+      height: 91vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    img{
+      width: 50%;
+    height: 20%;
+    }
+    .form input{
+      width: 100%;
+    }
+    .form {
+      position: relative;
+      z-index: 1;
+      background: #F0FEFF;
+      max-width: 90%;
+      max-height: 100%;
+      width: 100%;
+
+      margin-bottom: 6%;
+      padding: 45px;
+      text-align: center;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+
+
+
+      display:-webkit-box;
+
+    padding-left: 5%;
+
+      }
+.password-icon {
+
+  right: 5%;
+  padding-right: 28%;
+
+}
+.password-container {
+
+  margin-left: 1%;
+
+}
   }

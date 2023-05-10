@@ -20,6 +20,10 @@ import { AdminArticlesComponent } from './admin-articles/admin-articles.componen
 import { CategoryComponent } from './category/category.component';
 import { ArticleComponent } from './article/article.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
+import { AdminGuard } from './services/admin.guard';
+import {CanActivateChild} from '@angular/router';
+import { ArticleCreateComponent } from './article-create/article-create.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent ,pathMatch: 'full',
@@ -27,7 +31,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent ,pathMatch: 'full',
 },
   { path: 'admin',
-  component: DashboardAdminComponent ,
+  component: DashboardAdminComponent ,canActivate: [AdminGuard],
   children: [
       {
         path: '',
@@ -83,6 +87,10 @@ const routes: Routes = [
 
   },
   {
+    path: 'profile',
+    component: ProfileComponent,
+  },
+  {
     path: 'articles',
     component: ArticleComponent,
 
@@ -97,11 +105,18 @@ const routes: Routes = [
     component: NewsComponent,
 
   },
+
   {
     path: 'contact',
     component: ContactComponent,
 
   },
+  {
+    path: 'create',
+    component: ArticleCreateComponent,canActivate: [AuthGuard]
+
+  },
+
 
   {
     path: 'signup',

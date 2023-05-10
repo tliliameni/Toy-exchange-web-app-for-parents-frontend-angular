@@ -24,6 +24,9 @@ createNews(newsData: FormData): Observable<any> {
 getAllNews(): Observable<any> {
   return this.http.get(`${this.baseUrl}/all`);
 }
+getNewdCount(): Observable<NewsCount> {
+  return this.http.get<NewsCount>(`${this.baseUrl}/News-count`);
+}
 getNewsById(id: number): Observable<News> {
   const headers = new HttpHeaders();
   headers.append('Content-Type', 'multipart/form-data');
@@ -61,4 +64,7 @@ updateNews(id: number, file: File,title: string, description: string) {
 deleteNews(id: number): Observable<any> {
   return this.http.delete(`${this.baseUrl}/delete/${id}`);
 }
+}
+export interface NewsCount {
+  count: number;
 }

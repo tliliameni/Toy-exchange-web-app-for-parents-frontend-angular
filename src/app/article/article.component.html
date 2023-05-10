@@ -15,16 +15,45 @@
           <mat-icon>search</mat-icon>
         </button>
       </mat-form-field>
+
+      <select [(ngModel)]="selectedCategory" placeholder="Select Category" (change)="selectedCategory ? searchArticleByCategory(selectedCategory) : searchArticle()"
+  class="select-box">
+  <option (click)="showAllCategories()"value="">Select category please</option>
+  <option *ngFor="let category of categoriesList" [value]="category.nom">{{category.nom}}</option>
+</select>
+<button mat-button routerLink="/create"  routerLinkActive="active"style="background-color:rgb(238, 195, 238); color:darkslategray;margin-left:10px;margin-bottom:10px"><mat-icon>add_box</mat-icon>Create</button>
+
+
+
+
+   <!-- <div class="example-wrapper" style="margin-left: 8%; margin-bottom:2%">
+        <kendo-label style="font-family: 'Jost';
+        font-style: normal;" text="Choose category here:">
+          <kendo-multiselect
+            #multiselect
+            [data]="data"
+            [filterable]="true"
+            textField="text"
+            valueField="value"
+          >
+          </kendo-multiselect>
+        </kendo-label>
+      </div>-->
     </div>
+
     <div class="row">
       <div class="col-md-4" *ngFor="let article of articlesList.reverse() | paginate: { itemsPerPage: 9, currentPage: p }">
         <div class="card">
+          <h5 class="card-title"><mat-icon style="padding-top:2%">account_box</mat-icon> {{ article.user.username }}</h5>
           <img [src]="article.imageDataUrl" class="card-img-top" alt="..." style=" display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 80%;margin-top:2%">
+          width: 80%;padding-top:10px">
           <div class="card-body">
-            <h5 class="card-title">{{ article.title }}</h5>
+
+            <h5 class="card-title">title: {{ article.title }}</h5>
+            <h5 class="card-title">Category : {{ article.category.nom }}</h5>
+
             <p class="card-text truncate" [ngClass]="{'expanded': article.expanded}">
               {{ article.description }}
               <span *ngIf="!article.expanded">...</span>
@@ -34,6 +63,6 @@
         </div>
       </div>
     </div>
-
- <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+ <div style="margin-left: 40%;"><pagination-controls (pageChange)="p = $event" ></pagination-controls></div>
  <app-footer></app-footer>

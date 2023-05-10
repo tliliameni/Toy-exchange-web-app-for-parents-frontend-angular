@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Choose an Avatar</h2>
+<div mat-dialog-content class="avatar-options">
+  <div *ngFor="let option of avatarOptions" (click)="selectAvatar(option)">
+    <img [src]="option" alt="Avatar Option">
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">Cancel</button>
+</div>

@@ -10,22 +10,99 @@
 
  <div class="login-page" style="background-color: #F0FEFF;">
     <div class="form">
-      <form class="login-form" #loginForm="ngForm">
+      <form
+      *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
         <div class="container">
   <label class="lab1" >Sign Up</label>
-  <label class="lab2">Sign up and start exchanging and selling toys!</label></div>
- <input type="text" placeholder="email adresse" required name="username" [(ngModel)]="username" email/>
+  <label class="lab2">Sign up and start exchanging and selling toys!</label>
+ <input type="text" placeholder="username" required name="username"   type="text"
+ class="form-control"
+ name="username"
+ [(ngModel)]="form.username"
+ required
+ minlength="3"
+ maxlength="20"
+ #username="ngModel"
+ [ngClass]="{ 'is-invalid': f.submitted && username.errors }" username/>
+ <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
+  <div *ngIf="username.errors['required']">Username is required</div>
+  <div *ngIf="username.errors['minlength']">
+    Username must be at least 3 characters
+  </div>
+  <div *ngIf="username.errors['maxlength']">
+    Username must be at most 20 characters
+  </div>
+</div>
+<input placeholder="email adresse"
+type="email"
+class="form-control"
+name="email"
+[(ngModel)]="form.email"
+required
+email
+#email="ngModel"
+[ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+/>
+<div class="invalid-feedback" *ngIf="email.errors && f.submitted">
+<div *ngIf="email.errors['required']">Email is required</div>
+<div *ngIf="email.errors['email']">
+  Email must be a valid email address
+</div>
+</div>
+  <div class="password-container">
+    <input type="{{ showPassword ? 'text' : 'password' }}" placeholder="Password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="6"
+            #password="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
 
-        <label class="check"> <input type="{{ showPassword ? 'text' : 'password' }}"  [(ngModel)]="password" name="password" minlength="8" placeholder ="Password">
-        </label>
-        <label class="check">Show password</label><input type="checkbox" (click)="toggleShowPassword()">
-    <label class="check"> <input type="password" placeholder="confirm password" required name="confirmpassword" [(ngModel)]="confirmpassword"/></label>
-        <label class="check">Show password</label><input type="checkbox" (click)="toggleShowPassword()">
-        <button [disabled]="!loginForm.valid" style="color:'#4E7D64'" (click)="onSubmit()">sign up</button>
+          />
+    <button type="button" class="btn-password-toggle" (click)="togglePasswordVisibility()"
+            style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); z-index: 10;background:transparent; color:white">
+      <span class="password-icon" [class.hide-password]="showPassword">
+        <i class="fa fa-eye-slash"></i>
+      </span>
+      <span class="password-icon" [class.hide-password]="!showPassword">
+        <i class="fa fa-eye"></i>
+      </span>
+    </button>
+  </div>
+
+<div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+  <div *ngIf="password.errors['required']">Password is required</div>
+  <div *ngIf="password.errors['minlength']">
+    Password must be at least 6 characters
+  </div>
+</div>
+
+
+
+
+
+
+   <!-- <label class="check"> <input type="password" placeholder="confirm password" required name="confirmpassword" [(ngModel)]="confirmpassword"/></label>
+        <label class="check">Show password</label><input type="checkbox" (click)="toggleShowPassword()">-->
+        <button class="btt" style="color:'#4E7D64'" >sign up</button>
         <p class="message">Already have an account? <a href="login">Login</a></p>
+        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+          Signup failed!<br />{{ errorMessage }}
+        </div>
+      </div>
       </form>
+
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Your registration is successful!
+      </div>
     </div>
   </div>
   <div class="footer" #footer>
-   <img  height="70%"  width="80%"src="../../assets/images/icontoy.png">
+   <img  src="../../assets/images/icontoy.png">
   </div>

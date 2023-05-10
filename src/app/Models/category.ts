@@ -1,4 +1,4 @@
 export class Category{
-  idd:number;
+  id:number;
  nom:String;
 }

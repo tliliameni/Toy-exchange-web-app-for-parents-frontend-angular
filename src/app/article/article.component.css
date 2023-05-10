@@ -2,7 +2,10 @@
   width: 100%;
     margin: 0 auto;
     padding: 20px;
+    margin-bottom: 10%;
   }
+
+
   .row{
     align-items: center;
   }
@@ -95,6 +98,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+    margin-left: 20px;
 
   }
 
@@ -140,5 +144,37 @@
   }
   .ngx-pagination /deep/ {
     margin-left: 30%;
+
   }
-  .ngx-pagination::ng-deep{margin-left:30%;margin-bottom:1rem}
+  .ngx-pagination::ng-deep{margin-left:30%;margin-bottom:6%}
+  .select-box {
+    margin-left: 60px;
+    margin-bottom: 15px;
+    border-color: #CDA7C6;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #CDA7C6;
+    background-color: #fff;
+    width: 250px;
+  }
+
+  .select-box option:hover {
+    background-color: #CDA7C6;
+    color: #fff;
+  }
+
+  .select-box:focus {
+    outline: none;
+    border-color: #CDA7C6;
+    /*box-shadow: 0 0 0 2px #CDA7C6;*/
+  }
+  .select-box:hover option:checked {
+    background-color: #CDA7C6;
+    color: #fff;
+  }
+
+
+
+

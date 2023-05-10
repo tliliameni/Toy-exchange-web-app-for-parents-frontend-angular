@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { User, UserService } from './user-service.service';
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -8,37 +8,40 @@ import { User, UserService } from './user-service.service';
 })
 export class SignupComponent implements OnInit {
 
-    username!: string;
-    password!: string;
-    confirmpassword!: string;
-    showPassword = false;
-    constructor(private userService: UserService) { }
+  form: any = {
+    username: null,
+    email: null,
+    password: null
+  };
+  showPassword = false;
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
+  hide = true;
+  constructor(private authService: AuthService) { }
 
-    ngOnInit(): void {
-    }
+  ngOnInit(): void {
+  }
 
-    onSubmit(): void {
-      const user: User = {
-        username: this.username,
-        password: this.password
-      };
-      this.userService.addUser(user);
-      console.log('New user:', user);
-      // TODO: Save user data to database or other storage
-    }
-      // TODO: Handle successful signup and navigate to another page
+  onSubmit(): void {
+    const { email, password, username } = this.form;
+
+    this.authService.register(username, email, password).subscribe({
+      next: data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+      error: err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    });
+  }
 
 
-
-
-
-  loginForm = new FormGroup({
-    username: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
-    confirmpassword: new FormControl('',Validators.required)
-  });
-
-  toggleShowPassword(): void {
+  togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
+
 }

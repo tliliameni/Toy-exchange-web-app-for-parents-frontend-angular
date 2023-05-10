@@ -69,8 +69,19 @@
   </div>
   </div>
 </div>-->
-<div class="container-fluid">
+<div class="container-fluid"   >
   <div class="cards">
+  <div class="card" ><div *ngFor=" let image of images">
+      <img src="{{image}}" alt="Image 1">
+</div>
+      <div class="categories-container">
+        <div *ngFor=" let categ of categories">
+          <p >{{categ.nom}}</p>
+</div></div></div></div>
+    </div></div>
+
+
+  <!--<div class="cards">
     <div class="card">
       <img src="image1.jpg" alt="Image 1">
       <label>Card 1</label>
@@ -89,7 +100,7 @@
   </div>
 </div>
 
-</div>
+</div>-->
 <div class="container">
   <div class="left-section">
     <h1>EXPLORE!</h1>

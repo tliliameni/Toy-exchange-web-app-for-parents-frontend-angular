@@ -1,8 +1,13 @@
+import { User } from "./User";
+import { Category } from "./category";
+
 export class Article {
   id: number;
  title!:string;
  description!:string;
  exchange!:string;
- price!:number;
- file!:File;
+ price!:String;
+ image:File;
+ user: User;
+category:  Category ;
 }
