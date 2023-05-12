@@ -24,7 +24,7 @@ createNews(newsData: FormData): Observable<any> {
 getAllNews(): Observable<any> {
   return this.http.get(`${this.baseUrl}/all`);
 }
-getNewdCount(): Observable<NewsCount> {
+getNewsCount(): Observable<NewsCount> {
   return this.http.get<NewsCount>(`${this.baseUrl}/News-count`);
 }
 getNewsById(id: number): Observable<News> {

@@ -72,6 +72,7 @@ import { ArticleDetailsComponent } from './article-details/article-details.compo
 import { NewsDetailsComponent } from './news-details/news-details.component';
 import { AvatarComponent } from './avatar/avatar.component';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
@@ -115,6 +116,7 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
     ArticleDetailsComponent,
     NewsDetailsComponent,
     AvatarComponent,
+    WelcomeComponent,
 
   ],
   imports: [

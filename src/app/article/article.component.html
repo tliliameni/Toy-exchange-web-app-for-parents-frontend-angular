@@ -5,8 +5,13 @@
 
 <div class="container">
   <div class="top-middle">
-    <h1>Find Toys now! </h1>
-    <p>Exchange toys or sell them</p>
+    <h1 class="block-effect" style="--td: 1.2s">
+      <div class="block-reveal" style="--bc: #d7c2d3; --d: .1s">Find Toys </div>
+
+    </h1>
+
+
+    <p>Exchange or sell toys with other parents</p>
     <p>Create account first so you can create your toy article</p><p>you can consult the articles</p></div>
     <div class="search-container">
       <mat-form-field>
@@ -58,7 +63,7 @@
               {{ article.description }}
               <span *ngIf="!article.expanded">...</span>
             </p>
-            <a href="#" class="btn btn-primary read-more" (click)="article.expanded = !article.expanded" *ngIf="!article.expanded">Read More</a>
+            <button class="btt" (click)="viewmore(article.id)">See details</button>
           </div>
         </div>
       </div>

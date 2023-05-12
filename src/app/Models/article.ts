@@ -9,5 +9,6 @@ export class Article {
  price!:String;
  image:File;
  user: User;
+ imagedataUrl:String;
 category:  Category ;
 }

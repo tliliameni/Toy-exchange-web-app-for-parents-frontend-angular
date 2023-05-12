@@ -3,6 +3,7 @@ import { ArticleService } from '../services/article.service';
 import { MultiSelectComponent } from "@progress/kendo-angular-dropdowns";
 import { switchMap, from, tap, delay, map } from 'rxjs';
 import { CategoryService } from '../services/category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-article',
@@ -20,7 +21,8 @@ export class ArticleComponent implements OnInit {
 
   constructor(
     private articleService: ArticleService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private router: Router
   ) {}
 
  /* ngAfterViewInit() {
@@ -95,6 +97,9 @@ export class ArticleComponent implements OnInit {
     this.getArticles();
   }
 
+  viewmore(id: number) {
+    this.router.navigate(['/articledetails', id]);
+  }
   searchArticleByCategory(categoryName: string): void {
     this.articleService.searchByCategoryName(categoryName)
       .subscribe(

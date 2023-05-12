@@ -24,6 +24,7 @@ import { AdminGuard } from './services/admin.guard';
 import {CanActivateChild} from '@angular/router';
 import { ArticleCreateComponent } from './article-create/article-create.component';
 import { AuthGuard } from './services/auth.guard';
+import { ArticleDetailsComponent } from './article-details/article-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent ,pathMatch: 'full',
@@ -94,6 +95,10 @@ const routes: Routes = [
     path: 'articles',
     component: ArticleComponent,
 
+  },
+  {
+    path: 'articledetails/:id',
+    component: ArticleDetailsComponent,
   },
   {
     path: 'aboutus',

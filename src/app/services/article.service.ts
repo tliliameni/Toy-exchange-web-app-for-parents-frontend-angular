@@ -57,7 +57,7 @@ getAllArticles(): Observable<any> {
   return this.http.get(`${this.baseUrl}/all`);
 }
 getArticleById(articleId: number): Observable<any> {
-  return this.http.get<any>(`${this.baseUrl}/${articleId}`).pipe(
+  return this.http.get<any>(`${this.baseUrl}/getById/${articleId}`).pipe(
     map(article => {
       const username = article.user.username;
       const categoryName = article.category.nom;

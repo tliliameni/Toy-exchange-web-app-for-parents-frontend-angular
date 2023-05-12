@@ -1,11 +1,16 @@
 <app-header></app-header>
-<img src="../../assets/images/bandrole.jpg" class="banderol" >
-<div class="top-middle">
-  <h1>Contact us! <img src="../../assets/images/contactus.avif" width="15%" height="15%" style="align-items: center;"></h1>
+<img src="../../assets/images/contactus (2).jpg" class="banderol" >
+
+<div class="container">
+  <div class="top-middle">
+    <h1 class="block-effect" style="--td: 1.2s">
+      <div class="block-reveal" style="--bc: #d7c2d3; --d: .1s">Contact us</div>
+
+    </h1>
 
   <p>Send us your question and we will respond to you by email! </p>
 
-</div>
+
 <div class="email-form">
   <h2>Send Email</h2>
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
@@ -45,7 +50,16 @@
         </div>
       </form>
     </div>
-  </form></div>
+  </form>
+    <div class="typewriter">
+    <div class="slide"><i></i></div>
+    <div class="paper"></div>
+    <div class="keyboard"></div>
+   </div>
+  </div>
+<!-- dribbble -->
+</div>
+</div>
 <!--<form (submit)="onSubmit()" #contactForm="ngForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="name">Name:</label>

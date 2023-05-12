@@ -5,7 +5,29 @@
     margin-bottom: 10%;
   }
 
+  .card:hover {
+    transform: scale(1.05); /* increase size of card on hover */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* add shadow effect */
+  }
 
+  /* CSS for button hover animation */
+  .btt {
+    background-color: #4caf87; /* set button background color */
+    color: white; /* set button text color */
+    border: none; /* remove button border */
+    padding: 10px 20px; /* set button padding */
+    font-size: 16px; /* set button font size */
+    cursor: pointer; /* change mouse cursor on hover */
+    transition: background-color 0.3s ease; /* add transition effect */
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3%;
+    margin-left: 30%;
+  }
+
+  .btt:hover {
+    background-color: #965a96; /* change background color on hover */
+  }
   .row{
     align-items: center;
   }
@@ -72,8 +94,8 @@
   h1{
   font-family: 'Jost';
   font-style: normal;
-  font-weight: 500;
-  font-size: 130px;
+  font-weight: 300;
+  font-size: 90px;
   color:#CDA7C6;
   ;
   line-height: 140px;
@@ -89,7 +111,7 @@
   .banderol{
 
       width: 100%;
-      height: 400px;
+      height: 440px;
 
   }
   /*search box css*/
@@ -175,6 +197,110 @@
     color: #fff;
   }
 
+/**/
+/* reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  min-height: 100vh;
+  padding: 20px;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+/* other */
+.info {
+  margin: 20px 0;
+  text-align: center;
+}
+
+p {
+  color: #2e2e2e;
+  margin-bottom: 20px;
+}
+
+
+/* block-$ */
+.block-effect {
+  font-size: calc(8px + 6vw);
+}
+
+.block-reveal {
+  --t: calc(var(--td) + var(--d));
+
+  color: transparent;
+  padding: 4px;
+
+  position: relative;
+  overflow: hidden;
+
+  animation: revealBlock 0s var(--t) forwards;
+}
+
+.block-reveal::after {
+  content: '';
+
+  width: 0%;
+  height: 100%;
+  padding-bottom: 4px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background: var(--bc);
+  animation: revealingIn var(--td) var(--d) forwards, revealingOut var(--td) var(--t) forwards;
+}
+
+
+/* animations */
+@keyframes revealBlock {
+  100% {
+    color: #CDA7C6;
+  }
+}
+
+@keyframes revealingIn {
+
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes revealingOut {
+
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+
+}
+
+.abs-site-link {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  color: hsla(0, 0%, 0%, .6);
+  font-size: 16px;
+}
 
 
