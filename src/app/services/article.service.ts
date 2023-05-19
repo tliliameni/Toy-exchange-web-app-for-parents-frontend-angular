@@ -38,7 +38,9 @@ createArticle(articleData: FormData,categoryId:number,userId:number): Observable
 getArticlesCount(): Observable<ArticleCount> {
   return this.http.get<ArticleCount>(`${this.baseUrl}/articles/count`);
 }
-
+getUserArticles(userId: number): Observable<Article[]> {
+  return this.http.get<Article[]>(`${this.baseUrl}/users/${userId}/articles`);
+}
 /*
 /*
 createArticle(articleData: FormData, categoryId: number, userId: number): Observable<any> {

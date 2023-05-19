@@ -5,6 +5,9 @@ export class User{
   password:String;
   createdAt: Date;
   roles: Role[];
+  file:File;
+  imagedataUrl:String;
+  phoneNumber:string;
 }
 
 interface Role {

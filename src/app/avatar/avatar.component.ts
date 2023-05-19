@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AvatarDialogComponent } from '../profile/profile.component';
 
 @Component({
   selector: 'app-avatar',
@@ -39,9 +38,7 @@ export class AvatarComponent {
     this.selectedAvatar = avatar;
     console.log(this.selectedAvatar);
 
-    const dialogRef = this.dialog.open(AvatarDialogComponent, {
-      data: { avatar: this.selectedAvatar }
-    });
+   
   }
 
 }

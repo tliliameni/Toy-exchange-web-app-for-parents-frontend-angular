@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { News } from '../Models/news';
+import { AboutUs } from '../Models/AboutUs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +13,11 @@ private  baseUrl = "http://localhost:8090/AboutUs";
 
 
 constructor(private http: HttpClient) { }
-getById(id: number): Observable<News> {
+getById(id: number): Observable<AboutUs> {
   const headers = new HttpHeaders();
   headers.append('Content-Type', 'multipart/form-data');
   headers.append('Accept', 'application/json');
-  return this.http.get<News>(`${this.baseUrl}/getById/${id}`,{ headers: headers });
+  return this.http.get<AboutUs>(`${this.baseUrl}/getById/${id}`,{ headers: headers });
 }
 
 getImage(id: number): Observable<any> {

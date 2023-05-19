@@ -13,6 +13,8 @@ import { CategoryService } from '../services/category.service';
 export class AddCategoryComponent implements OnInit {
   newsForm: FormGroup;
   nom:String;
+  file: File | null = null;
+  imageData: any;
 
 
   constructor(private newsService: CategoryService,
@@ -28,15 +30,19 @@ export class AddCategoryComponent implements OnInit {
   createForm() {
     this.newsForm = this.formBuilder.group({
       nom: ['', Validators.required],
-
+      image: ['', Validators.required]
     });
   }
-
+  onFileSelected(event: any) {
+    this.file = event.target.files[0];
+    this.newsForm.get('image')?.setValue(this.file);
+  }
   onSubmit() {
     const newsData = new FormData();
+    newsData.append('image', this.newsForm.get('image')?.value);
     newsData.append('nom', this.newsForm.get('nom')?.value);
 
-    this.newsService.createCategories(this.newsForm.get('nom')?.value).subscribe(
+    this.newsService.createCategories(newsData).subscribe(
       response => {
         console.log(response);
 
@@ -45,6 +51,7 @@ export class AddCategoryComponent implements OnInit {
 
 
         this.newsForm.reset();
+        this.imageData = null;
       },
       error => {
         console.log(error);
@@ -53,6 +60,8 @@ export class AddCategoryComponent implements OnInit {
       }
     );
   }
-
+  get sanitizedImageData(): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustUrl(this.imageData);
+  }
 
 }

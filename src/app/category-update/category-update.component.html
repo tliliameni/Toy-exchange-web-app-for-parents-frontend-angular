@@ -1,0 +1,22 @@
+<h2>Edit Category</h2>
+<div class="card-container">
+  <div class="card">
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Title:</label>
+    <input type="text" formControlName="nom" />
+    <div *ngIf="editForm.get('nom').invalid && (editForm.get('nom').dirty || editForm.get('nom').touched)">
+      <div *ngIf="editForm.get('nom').errors['required']" style="color:red">Nom is required.</div>
+    </div>
+  </div>
+
+
+  <input type="file" (change)="onFileSelect($event)" enctype="multipart/form-data" (change)="showPreview($event)"/>
+    <div *ngIf="editForm.get('photo')"style="color:red"></div>
+  <button type="submit" class="btn btn-primary">Update Category </button>
+</form>
+  </div></div>
+<button mat-icon-button color="primary" class="back-btn" aria-label="Go back" matTooltip="Go Back" style="margin-left:41%; width:30%" routerLink="/admin/category">
+  <mat-icon>arrow_back</mat-icon>
+ Go back to Category List
+</button>

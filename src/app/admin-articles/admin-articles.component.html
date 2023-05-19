@@ -40,7 +40,7 @@
 
         <td>{{ item.price }} TND</td>
         <td>
-          <button mat-icon-button color="primary" aria-label="View">
+          <button mat-icon-button color="primary" aria-label="View"(click)="viewmore(item.id)">
             <mat-icon>visibility</mat-icon>
           </button>
           <button mat-icon-button color="warn" aria-label="Delete" (click)="openConfirmationDialog(item.id)">

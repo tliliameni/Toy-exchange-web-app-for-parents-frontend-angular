@@ -1,18 +1,17 @@
-<app-header></app-header>
-<img src="../../assets/images/bandrole.jpg" class="banderol" >
+<app-header-test></app-header-test>
+<img [src]="Contact.imagedataUrl" class="banderol" >
 
 
 
 <div class="container">
   <div class="top-middle">
     <h1 class="block-effect" style="--td: 1.2s">
-      <div class="block-reveal" style="--bc: #d7c2d3; --d: .1s">Find Toys </div>
+      <div class="block-reveal" style="--bc: #d7c2d3; --d: .1s">{{Contact.title}} </div>
 
     </h1>
 
 
-    <p>Exchange or sell toys with other parents</p>
-    <p>Create account first so you can create your toy article</p><p>you can consult the articles</p></div>
+    <p>{{Contact.description}}</p></div>
     <div class="search-container">
       <mat-form-field>
         <input matInput type="text" placeholder="Search article" [(ngModel)]="searchQuery">
@@ -48,12 +47,12 @@
 
     <div class="row">
       <div class="col-md-4" *ngFor="let article of articlesList.reverse() | paginate: { itemsPerPage: 9, currentPage: p }">
-        <div class="card">
+        <div class="card" style="height:450px;">
           <h5 class="card-title"><mat-icon style="padding-top:2%">account_box</mat-icon> {{ article.user.username }}</h5>
           <img [src]="article.imageDataUrl" class="card-img-top" alt="..." style=" display: block;
           margin-left: auto;
           margin-right: auto;
-          width: 80%;padding-top:10px">
+          width: 80%;height:40%;padding-top:10px">
           <div class="card-body">
 
             <h5 class="card-title">title: {{ article.title }}</h5>
@@ -70,4 +69,4 @@
     </div>
 </div>
  <div style="margin-left: 40%;"><pagination-controls (pageChange)="p = $event" ></pagination-controls></div>
- <app-footer></app-footer>
+<app-footer></app-footer>

@@ -73,7 +73,20 @@ import { NewsDetailsComponent } from './news-details/news-details.component';
 import { AvatarComponent } from './avatar/avatar.component';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { WelcomeComponent } from './welcome/welcome.component';
-
+import { MentionLegalComponent } from './mention-legal/mention-legal.component';
+import { AboutUsAdminComponent } from './about-us-admin/about-us-admin.component';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CalendarComponent } from './calendar/calendar.component';
+import { CategoryUpdateComponent } from './category-update/category-update.component';
+import { AdminPageContactComponent } from './admin-page-contact/admin-page-contact.component';
+import { AdminPageArticleComponent } from './admin-page-article/admin-page-article.component';
+import { AdminPageNewsComponent } from './admin-page-news/admin-page-news.component';
+import { AdminPageMentionLegalComponent } from './admin-page-mention-legal/admin-page-mention-legal.component';
+import { HeaderTestComponent } from './header-test/header-test.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { HomeFinalComponent } from './home-final/home-final.component';
 
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 @NgModule({
@@ -117,17 +130,35 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
     NewsDetailsComponent,
     AvatarComponent,
     WelcomeComponent,
+    MentionLegalComponent,
+    AboutUsAdminComponent,
+    CalendarComponent,
+    CategoryUpdateComponent,
+    AdminPageContactComponent,
+    AdminPageArticleComponent,
+    AdminPageNewsComponent,
+    AdminPageMentionLegalComponent,
+    HeaderTestComponent,
+    EditProfileComponent,
+    HomeFinalComponent,
 
   ],
   imports: [
     BrowserModule,
     CarouselModule,
     CommonModule,
+    FlatpickrModule,
     MatMenuModule,
     MatMomentDateModule,
     NgxPaginationModule,
     NgChartsModule,
  NgChartsModule,
+ CalendarModule,
+ FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
     MatExpansionModule,
     MatToolbarModule,
     MatIconModule,

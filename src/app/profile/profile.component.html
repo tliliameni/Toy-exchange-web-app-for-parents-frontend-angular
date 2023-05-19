@@ -1,27 +1,88 @@
-<app-header></app-header>
-<div class="container" *ngIf="currentUser; else loggedOut">
+
+
  <!-- <div class="profile">
     <img src="{{ avatarUrl }}" [alt]="" />
     <app-avatar (selectAvatar)="updateAvatar($event)"></app-avatar>
   </div>
 -->
+<app-header-test></app-header-test>
+<div class="container">
+  <div class="left-card">
+    <button mat-fab color="primary" class="add-btn" aria-label="Add" matTooltip="Add Item" (click)="editProfile(currentUser.id)">
+      <mat-icon>edit</mat-icon>
+      </button>
+    <div class="profile-pic">
 
-  <header class="jumbotron">
-    <h3>
-      <strong>{{ currentUser.username }}</strong> Profile
-    </h3>
-  </header>
-  <p>
-    <strong>Email:</strong>
-    {{ currentUser.email }}
-  </p>
-  <strong>Roles:</strong>
-  <ul>
-    <li *ngFor="let role of currentUser.roles">
-      {{ role }}
-    </li>
-  </ul>
-</div>
-<ng-template #loggedOut>
-  Please login.
-</ng-template>
+      <img [src]="currentUser.imagedataUrl || '../../assets/images/anonymoususer.jpg'" alt="Profile Picture" />
+    </div>
+    <div class="profile-details">
+      <h2>Username: {{ currentUser.username }}</h2>
+      <h3><mat-icon>email</mat-icon> Email address: {{ currentUser.email }}</h3>
+      <h4><mat-icon>phone</mat-icon> Phone number: {{ phone }}</h4>
+    </div>
+
+  </div>
+  <div class="right-section">
+
+
+      <div class="search-container">
+        <h1>My articles</h1>
+        <button mat-fab color="primary" class="add-btn" aria-label="Add" matTooltip="Add Item"routerLink="/create" style="margin-left: 30px;">
+          <mat-icon>add</mat-icon>
+        </button>
+
+      </div>
+<div class=".profile-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Exchange</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of articles.reverse() | paginate: { itemsPerPage: 7, currentPage: p }">
+            <td>
+              <img [src]="item.imagedataUrl" class="card-img-top" alt="..." style=" display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 40%;
+                margin-top:2%">
+            </td>
+            <td>{{ item.title }}</td>
+            <td>
+              <p class="card-text truncate" >
+                {{ item.description }}
+
+              </p>
+            </td>
+            <td>
+              {{item.price}} dinars
+            </td>
+            <td>
+              {{item.exchange}}
+            </td>
+            <td>
+              <button mat-icon-button color="primary" aria-label="View"(click)="viewmore(item.id)">
+                <mat-icon>visibility</mat-icon>
+              </button>
+              <button mat-icon-button color="accent" aria-label="Edit" (click)="editarticle(item.id)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" aria-label="Delete" (click)="openConfirmationDialog(item.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class='contain' ><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
+      </div>
+</div></div>
+
+<app-footer></app-footer>

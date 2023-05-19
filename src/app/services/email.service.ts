@@ -8,7 +8,7 @@ import { EmailDetails } from '../Models/EmailDetails';
   providedIn: 'root'
 })
 export class EmailService {
-  private baseUrl = 'http://localhost:8090'; // change this to your actual API endpoint
+  private baseUrl = 'http://localhost:8090';
 
   constructor(private http: HttpClient) { }
 

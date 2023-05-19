@@ -1,0 +1,78 @@
+.container
+{
+  background-color: transparent;
+}
+.bg-light {
+  background-color: transparent!important;
+
+}
+.nav-link{
+  padding-left: 30%;
+}
+.navbar-nav .mr-auto{
+  width: 100%;
+
+  align-items: center;
+}
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding-right: 35px;
+  padding-right: 40px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.navbar {
+  justify-content: space-between;
+  font-family: 'Jost';
+  font-weight: 200;
+position:relative;
+
+  font-size: 20px;
+
+}
+.navbar-nav{
+  padding-right: 10px;
+  padding-left: 10px;
+  font-style: 'Jost';
+  color: #716d6d;
+  text-align: center;
+}
+.navbar-nav:hover{
+  color: #a5829f;
+}
+.navbar-nav .nav-link {
+  padding-right: 50px;
+  padding-left: 30px;
+  font-style: 'Jost';
+  color: #716d6d;
+
+  text-align: center;
+}
+.navbar-nav .nav-link:hover{
+  color:  #a5829f;
+}
+.navbar-nav .nav-link:not(:last-child):after {
+
+  margin-left: 30px;
+  margin-right: 30px;
+  color: white;
+  text-align: center;
+}
+
+.navbar-brand img {
+  width: 29%;
+  height: 20%;
+}
+
+.navbar-brand img:hover{
+  filter: grayscale(100%);
+
+}
+
+@media (max-width: 767px) {
+  .navbar-collapse {
+    margin-top: 10px;
+  }
+}

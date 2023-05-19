@@ -22,7 +22,9 @@ export class AdminNewsComponent implements OnInit {
   ngOnInit(): void {
     this.getNews();
   }
-
+  viewmore(id: number) {
+    this.router.navigate(['/newsdetails', id]);
+  }
   getNews(): void {
     this.newsService.getAllNews()
       .subscribe(

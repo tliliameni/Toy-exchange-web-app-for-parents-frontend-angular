@@ -20,7 +20,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of CategoriesList.reverse() | paginate: { itemsPerPage: 7, currentPage: p }">
-
+        <td>
+          <img [src]="item.imagedataUrl" class="card-img-top" alt="..." style=" display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 40%;
+            margin-top:2%">
+        </td>
         <td>{{ item.nom }}</td>
 
         <td>

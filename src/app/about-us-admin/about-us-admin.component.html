@@ -1,0 +1,60 @@
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img [src]="aboutUs.imagedataUrl" class="card-img-top" alt="..." style=" display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;
+          margin-top:2%">
+      </td>
+      <td>{{ aboutUs.title }}</td>
+      <td>
+        <p class="card-text truncate" >
+          {{ aboutUs.description }}
+
+        </p>
+      </td>
+      <td>
+        <button mat-icon-button color="primary" aria-label="View"(click)="viewPage()">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <button mat-icon-button color="accent" aria-label="Edit" (click)="edit()">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="edit-form-container" id="#editFormSection" style=" margin-left: 18%;">
+  <h2>Edit About Us</h2>
+  <form [formGroup]="editForm" (ngSubmit)="edit()">
+    <div class="form-field">
+      <label>Title</label>
+      <input type="text" formControlName="title" required />
+    </div>
+    <div class="form-field">
+      <label>Description</label>
+      <textarea formControlName="description" required></textarea>
+    </div>
+    <div class="form-field">
+      <label>Image</label>
+      <input type="file" (change)="onImageChange($event)" />
+    </div>
+    <div class="form-field">
+      <button type="submit" [disabled]="editForm.invalid">Save</button>
+    </div>
+  </form>
+</div>
+
+
+

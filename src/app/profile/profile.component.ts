@@ -3,6 +3,14 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 import { Inject } from '@angular/core';
 import { StorageService } from '../services/storage.service';
 import { CommonModule } from '@angular/common';
+import { ArticleService } from '../services/article.service';
+import { Article } from '../Models/article';
+import { Router } from '@angular/router';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ProfileService } from '../services/profile.service';
+import { da } from 'date-fns/locale';
+import { User } from '../Models/User';
 
 
 export class AvatarDialogModule { }
@@ -12,116 +20,113 @@ export class AvatarDialogModule { }
   providers: [
     { provide: MatDialogRef, useValue: {} }
   ],
-  styles: [`
-    .profile {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-left:20%;
-    }
-    .avatar-container {
-      position: relative;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-    }
-    .avatar-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .details {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-  `]
+  styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
+  searchQuery: string = '';
+  p: number = 1;
+  phone: string;
 
-  currentUser: any;
+  currentUser: User;
   avatarUrl ='../../assets/images/Group.png' ;
   avatarOptions = [
     '../../assets/images/avatar2.jpg',
     '../../../assets/images/avatar3.jpg',
     '../../../assets/images/avatar4.jpg',
   ];
-
-  constructor(private storageService: StorageService, public dialog: MatDialog) { }
+  viewmore(id: number) {
+    this.router.navigate(['/articledetails', id]);
+  }
+  articles:Article[];
+  constructor(private storageService: StorageService,private articleService:ArticleService,public dialog: MatDialog,
+    private router: Router,private snackBar: MatSnackBar,private profileService: ProfileService) { }
 
   ngOnInit(): void {
     this.currentUser = this.storageService.getUser();
-    this.avatarUrl = this.currentUser.avatarUrl;
+    this.articleService.getUserArticles(this.currentUser.id).subscribe(
+      (articles: Article[]) => {
+        this.articles = articles;
+        for (let article of this.articles) {
+          this.articleService.getImage(article.id)
+            .subscribe(
+              image => {
+                const reader = new FileReader();
+                reader.readAsDataURL(image);
+                reader.onload = () => {
+                  article.imagedataUrl = reader.result as string;
+                };
+              },
+              error => console.log(error)
+            );
+        }
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+    this. getProfileImage();
+    this.profileService.getPhone(this.currentUser.id).subscribe(data=>this.phone=data);
+    this.profileService.getUser(this.currentUser.id).subscribe(us=>this.currentUser=us);
   }
 
-  setAvatar() {
-    const dialogRef = this.dialog.open(AvatarDialogComponent, {
+  getProfileImage(){
+    this.profileService.getImage(this.currentUser.id).subscribe(
+      data=>{
+        const reader = new FileReader();
+        reader.readAsDataURL(data);
+        reader.onload = () => {
+          this.currentUser.imagedataUrl = reader.result as string;
+        };
+        console.log(this.currentUser.imagedataUrl);
+      },
+    error => console.log(error)
+  );
+  }
+  searchArticle(): void {
+    this.articleService.getAllArticleByMc(this.searchQuery)
+      .subscribe(
+        data => {
+          this.articles = data;
+          for (let article of this.articles) {
+            this.articleService.getImage(article.id)
+              .subscribe(
+                image => {
+                  const reader = new FileReader();
+                  reader.readAsDataURL(image);
+                  reader.onload = () => {
+                    article.imagedataUrl = reader.result as string;
+                  };
+                },
+                error => console.log(error)
+              );
+          }
+        },
+        error => console.log(error)
+      );
+  }
+  editProfile(id: number){
+
+      this.router.navigate(['/editProfile',id]);
+
+  }
+  editarticle(id: number) {
+    this.router.navigate(['/editarticle', id]);
+  }
+  openConfirmationDialog(articleId: number): void {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       width: '400px',
-      data: { avatarUrl: this.avatarUrl }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.avatarUrl = result;
-        this.currentUser.avatarUrl = result;
-        this.storageService.saveUser(this.currentUser);
+        // Call the deleteArticles method from the articlesService
+        this.articleService.deleteArticles(articleId).subscribe(() => {
+          this.snackBar.open('Articles deleted!', 'Dismiss', { duration: 3000 });
+          location.reload(); // Refresh the page
+        }, (error) => {
+          // Handle error
+        });
       }
     });
-  }
-  updateAvatar(avatar) {
-    this.currentUser.avatarUrl = avatar.url;
-  }
-}
-@NgModule({
-  imports: [
-    CommonModule
-  ]
-})
-export class ProfileComponentModule { }
-
-@Component({
-  selector: 'app-avatar-dialog',
-  templateUrl: './avatardialogue.html',
-
-  styles: [`
-    .avatar-options {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .avatar-options div {
-      position: relative;
-      width: 80px;
-      height: 80px;
-      overflow: hidden;
-      border-radius: 50%;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-    }
-    .avatar-options div img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  `]
-})
-export class AvatarDialogComponent {
-  avatarOptions: string[];
-
-  constructor(
-    public dialogRef: MatDialogRef<AvatarDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { avatarOptions: string[] }
-  ) {
-    this.avatarOptions = data.avatarOptions;
-  }
-
-  selectAvatar(option: string) {
-    this.dialogRef.close(option);
-  }
-
-  closeDialog() {
-    this.dialogRef.close();
   }
 }

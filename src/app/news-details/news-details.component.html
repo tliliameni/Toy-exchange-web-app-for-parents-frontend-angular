@@ -1,1 +1,15 @@
-<p>news-details works!</p>
+<app-header-test></app-header-test>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <img class="img-fluid" [src]="news.imagedataUrl" alt="{{news.title}}" />
+    </div>
+
+    <div class="col-md-6">
+      <h2 class="mb-3">{{news.title}}</h2>
+      <p>{{news.description}}</p>
+
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -47,12 +47,63 @@
         <mat-icon>live_tv</mat-icon>
         <span> News</span>
       </a>
+
     </li>
     <li class="nav-item">
-      <a routerLink="/newsList" routerLinkActive="active" class="nav-link">
-      <mat-icon>contact_support</mat-icon>
-        <span> About us</span>
-      </a>
+
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon>edit</mat-icon>
+                <span> Pages Edit</span>
+
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <li class="nav-item">
+            <a routerLink="/admin/aboutuss" routerLinkActive="active" class="nav-link">
+            <mat-icon>contact_support</mat-icon>
+              <span> About us Page</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/admin/contactpage" routerLinkActive="active" class="nav-link">
+            <mat-icon>contact_mail</mat-icon>
+              <span> Contact Page</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/admin/articlepage" routerLinkActive="active" class="nav-link">
+            <mat-icon>shopping_basket</mat-icon>
+              <span> Articles Page</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/admin/newsPage" routerLinkActive="active" class="nav-link">
+            <mat-icon>new_releases</mat-icon>
+              <span> News Page</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/admin/mentionlegalPage" routerLinkActive="active" class="nav-link">
+            <mat-icon>announcement</mat-icon>
+              <span> Legal Mention</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/admin/mentionlegalPage" routerLinkActive="active" class="nav-link">
+            <mat-icon>announcement</mat-icon>
+              <span> Legal Mention</span>
+            </a>
+          </li>
+        </mat-expansion-panel>
+      </mat-accordion>
     </li>
+
+
+
+
+
   </ul>
 </nav>

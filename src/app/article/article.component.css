@@ -94,15 +94,30 @@
   h1{
   font-family: 'Jost';
   font-style: normal;
-  font-weight: 300;
-  font-size: 90px;
+  font-weight: 250;
+  font-size: 70px;
   color:#CDA7C6;
-  ;
-  line-height: 140px;
+  line-height: 120px;
   padding-bottom: 2%;
   }
+  .pagination-controls {
+    background-color: #f0f0f0; /* Change the background color */
+  }
 
+  .pagination-controls .page-item.active .page-link {
+    background-color: #161c21 !important; /* Change the background color of the active page */
+    border-color: #161c21; /* Change the border color of the active page */
+    color: #fff; /* Change the text color of the active page */
+  }
 
+  .pagination-controls .page-link:hover {
+    background-color: #161c21; /* Change the background color on hover */
+    border-color: #1d2228; /* Change the border color on hover */
+    color: #fff; /* Change the text color on hover */
+  }
+  .pagination-controls .page-link {
+    color: #000; /* Change the text color */
+  }
   @media only screen and (max-width: 768px) {
     .card {
       width: 100%;

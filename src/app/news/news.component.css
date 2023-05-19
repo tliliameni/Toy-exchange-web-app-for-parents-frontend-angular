@@ -1,95 +1,160 @@
 .container {
-width: 100%;
-  margin: 0 auto;
-  padding: 20px;
-  margin-bottom: 10%;
-}
-.row{
-  align-items: center;
-}
-.top-middle {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-.card-text{
-  color: #4E7D64;
-}
-.card-group {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  padding-top: 2%;
-
-}
-
-.card {
-  width: calc(90% - 10px);
-  margin-bottom: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding-right: 2%;
-}
-
-.card img {
   width: 100%;
-  height: auto;
-}
-
-.label {
-  padding: 10px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.details-btn {
-  display: block;
-  margin: 0 auto;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #FDC33D;
-  color: #fff;
-  font-weight: bold;
-  margin-bottom: 2%;
-  font-family: 'Jost';
-font-style: normal;
-font-weight: 500;
-font-size: 15px;
-line-height: 15px;
-}
-p{
-  font-family: 'Jost';
-font-style: normal;
-font-weight: 350;
-font-size: 28px;
-line-height: 40px;
-text-align: center;
-color: #505151;
-}
-h1{
-font-family: 'Jost';
-font-style: normal;
-font-weight: 500;
-font-size: 130px;
-color:#CDA7C6;
-;
-line-height: 140px;
-padding-bottom: 2%;
-}
-
-
-@media only screen and (max-width: 768px) {
-  .card {
-    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    margin-bottom: 10%;
   }
-}
-.banderol{
 
-    width: 96%;
-    height: 430px;
+  .card:hover {
+    transform: scale(1.05); /* increase size of card on hover */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* add shadow effect */
+  }
 
-}
+  /* CSS for button hover animation */
+  .btt {
+    background-color: #4caf87; /* set button background color */
+    color: white; /* set button text color */
+    border: none; /* remove button border */
+    padding: 10px 20px; /* set button padding */
+    font-size: 16px; /* set button font size */
+    cursor: pointer; /* change mouse cursor on hover */
+    transition: background-color 0.3s ease; /* add transition effect */
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3%;
+    margin-left: 30%;
+  }
+
+  .btt:hover {
+    background-color: #965a96; /* change background color on hover */
+  }
+  .row{
+    align-items: center;
+  }
+  .top-middle {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .card-text{
+    color: #4E7D64;
+  }
+  .card-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-top: 2%;
+
+  }
+
+  .card {
+    width: calc(90% - 10px);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-right: 2%;
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+
+  .label {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .details-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FDC33D;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 2%;
+    font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 15px;
+  }
+  p{
+    font-family: 'Jost';
+  font-style: normal;
+  font-weight: 350;
+  font-size: 28px;
+  line-height: 40px;
+  text-align: center;
+  color: #505151;
+  }
+  h1{
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 250;
+    font-size: 70px;
+    color:#CDA7C6;
+    line-height: 120px;
+    padding-bottom: 2%;
+    }
+
+
+  @media only screen and (max-width: 768px) {
+    .card {
+      width: 100%;
+    }
+  }
+  .banderol{
+    margin-left: 25%;
+    width: 50%;
+    height: 380px;
+  }
+  /*search box css*/
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+
+  }
+
+  .search-container mat-form-field {
+    width: 100%;
+    max-width: 500px;
+    color: #4E7D64;
+  }
+
+  .search-container mat-icon {
+    color: #4E7D64;
+  }
+
+  .search-container button:hover mat-icon {
+    color: #CDA7C6;
+  }
+  /* description read more*/
+  .truncate {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .truncate.expanded {
+    -webkit-line-clamp: initial;
+  }
+
+  .read-more {
+    display: none;
+  }
+
+  .card-body:hover .read-more {
+    display: block;
+  }
 /*search box css*/
 .search-container {
   display: flex;

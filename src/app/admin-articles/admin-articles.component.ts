@@ -52,7 +52,9 @@ export class AdminArticlesComponent implements OnInit {
         error => console.log(error)
       );
   }
-
+  viewmore(id: number) {
+    this.router.navigate(['/articledetails', id]);
+  }
   searchArticles(): void {
     this.articlesService.getAllArticleByMc(this.searchQuery)
       .subscribe(

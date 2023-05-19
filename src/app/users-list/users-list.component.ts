@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements OnInit{
-
+ counter:number;
   newUserCounts: NewUserCount[];
   usercount: number;
   usernames: string[];
@@ -21,9 +21,17 @@ export class UsersListComponent implements OnInit{
 
   getNewUsersByDays(days: number = 7) {
     this.dashboardService.getNewUsersByDays(days)
-      .subscribe(newUserCounts => this.newUserCounts = newUserCounts);
+      .subscribe(newUserCounts =>{
+         this.newUserCounts = newUserCounts;
+         for (let num of this.newUserCounts) {
+          this.counter=+num.count;
+         }
+      });
+
   }
+
   articleCount: number;
+
 
   constructor(private articleServise: ArticleService,  private snackBar: MatSnackBar,public dialog: MatDialog,private http: HttpClient,private dashboardService: DashboardService) {}
   getArticlesCount() {

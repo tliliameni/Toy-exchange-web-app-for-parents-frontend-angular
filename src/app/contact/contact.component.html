@@ -1,14 +1,14 @@
-<app-header></app-header>
-<img src="../../assets/images/contactus (2).jpg" class="banderol" >
+<app-header-test></app-header-test>
+<img [src]="Contact.imageDataUrl" class="banderol" >
 
 <div class="container">
   <div class="top-middle">
     <h1 class="block-effect" style="--td: 1.2s">
-      <div class="block-reveal" style="--bc: #d7c2d3; --d: .1s">Contact us</div>
+      <div class="block-reveal" style="--bc: #d7c2d3; --d: .1s">{{Contact.title}}</div>
 
     </h1>
 
-  <p>Send us your question and we will respond to you by email! </p>
+  <p>{{Contact.description}}</p>
 
 
 <div class="email-form">

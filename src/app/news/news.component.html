@@ -1,17 +1,15 @@
-<app-header></app-header>
-<img src="../../assets/images/newss.jpg" class="banderol" >
+<app-header-test></app-header-test>
+<img [src]="NewsPage.imagedataUrl" class="banderol" >
 
 
 
 <div class="container">
   <div class="top-middle">
     <h1 class="block-effect" style="--td: 1.2s">
-      <div class="block-reveal" style="--bc: #d7c2d3; --d: .1s">Our News</div>
+      <div class="block-reveal" style="--bc: #d7c2d3; --d: .1s">{{NewsPage.title}}</div>
 
     </h1>
-    <p>Work on your child mental health!</p>
-    <p>Explore news and informations about
-    play therapy </p><p>and child behavior now!</p></div>
+    <p>{{NewsPage.description}}</div>
     <div class="search-container">
       <mat-form-field>
         <input matInput type="text" placeholder="Search news" [(ngModel)]="searchQuery">
@@ -22,7 +20,7 @@
     </div>
     <div class="row">
       <div class="col-md-4" *ngFor="let news of newsList.reverse() | paginate: { itemsPerPage: 9, currentPage: p }">
-        <div class="card">
+        <div class="card" style="height:400px;">
           <img [src]="news.imageDataUrl" class="card-img-top" alt="..." style=" display: block;
           margin-left: auto;
           margin-right: auto;
@@ -33,7 +31,7 @@
               {{ news.description }}
               <span *ngIf="!news.expanded">...</span>
             </p>
-            <a href="#" class="btn btn-primary read-more" (click)="news.expanded = !news.expanded" *ngIf="!news.expanded">Read More</a>
+            <button class="btt" (click)="viewmore(news.id)">See details</button>
           </div>
         </div>
       </div>
@@ -66,5 +64,5 @@
     </div>
   </div>
 </div>-->
-
 <app-footer></app-footer>
+

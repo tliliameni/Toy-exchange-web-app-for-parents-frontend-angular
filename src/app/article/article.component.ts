@@ -4,6 +4,9 @@ import { MultiSelectComponent } from "@progress/kendo-angular-dropdowns";
 import { switchMap, from, tap, delay, map } from 'rxjs';
 import { CategoryService } from '../services/category.service';
 import { Router } from '@angular/router';
+import { PageArticle } from '../Models/PageArticle';
+import { NewsService } from '../services/news.service';
+import { ArticlePageService } from '../services/article-page.service';
 
 @Component({
   selector: 'app-article',
@@ -11,8 +14,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
- // @ViewChild("multiselect") public multiselect: MultiSelectComponent;
-
+  title: String;
+  imageURL: string;
+ Contact:PageArticle;
   public data: Array<{ text: string; value: number }> = [];
 
   selectedCategory = '';
@@ -22,8 +26,27 @@ export class ArticleComponent implements OnInit {
   constructor(
     private articleService: ArticleService,
     private categoryService: CategoryService,
+    private newsService:ArticlePageService,
     private router: Router
   ) {}
+
+  getNews(): void {
+    this.newsService.getPageContactById(1)
+      .subscribe(
+        data => {
+          this.Contact = data;
+            this.newsService.getImage(this.Contact.id)
+              .subscribe(
+                image => {
+                  const reader = new FileReader();
+                  reader.readAsDataURL(image);
+                  reader.onload = () => {
+                    this.Contact.imagedataUrl = reader.result as string;
+                  };
+                },
+                error => console.log(error)
+              );
+          },)}
 
  /* ngAfterViewInit() {
     const contains = (value) => (s) =>
@@ -67,6 +90,7 @@ export class ArticleComponent implements OnInit {
       error => console.log(error)
     );
     this.getArticles();
+    this.getNews();
   }
 
   getArticles(): void {

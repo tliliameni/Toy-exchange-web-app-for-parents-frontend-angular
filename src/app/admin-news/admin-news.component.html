@@ -37,7 +37,7 @@
         </p>
       </td>
       <td>
-        <button mat-icon-button color="primary" aria-label="View">
+        <button mat-icon-button color="primary" aria-label="View"(click)="viewmore(item.id)">
           <mat-icon>visibility</mat-icon>
         </button>
         <button mat-icon-button color="accent" aria-label="Edit" (click)="editNews(item.id)">

@@ -1,0 +1,41 @@
+<app-header-test></app-header-test>
+<h2>Edit Profile</h2>
+<div class="card-container">
+
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Update profile picture if you want</label>
+    <div>
+
+      <input type="file" (change)="showPreview($event)" enctype="multipart/form-data" />
+      <div *ngIf="editForm.get('photo')">
+        <img [src]="imageURL" alt="Preview" class="preview-image" *ngIf="imageURL" />
+      </div>
+    </div>
+    <label>Username:</label>
+    <input type="text" formControlName="username" />
+    <div *ngIf="editForm.get('username').invalid && (editForm.get('username').dirty || editForm.get('username').touched)">
+      <div *ngIf="editForm.get('username').errors['required']" style="color:red">username is required.</div>
+    </div>
+  </div>
+  <label>email:</label>
+  <textarea formControlName="email"></textarea>
+
+  <div *ngIf="editForm.get('email').invalid && (editForm.get('email').dirty || editForm.get('email').touched)"required
+  email>
+    <div *ngIf="editForm.get('email').errors['required']"style="color:red">email is required.</div>
+  </div>
+  <label>Phone number:</label>
+  <textarea formControlName="phone" ></textarea>
+
+
+
+
+  <button type="submit" class="btn btn-primary">Update Profile</button>
+</form>
+  </div>
+ <button  color="primary" class="back-btn" aria-label="Go back" matTooltip="Go Back" style="margin-left:41%; width:30%" routerLink="/profile">
+  <mat-icon>arrow_back</mat-icon>
+Back to profile
+</button>
+<app-footer></app-footer>

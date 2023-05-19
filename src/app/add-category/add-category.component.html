@@ -10,7 +10,14 @@
           <div *ngIf="newsForm.get('nom').errors['required']" style="color:red">Name is required.</div>
         </div>
       </div>
-
+      <div>
+        <label>Image:</label>
+        <input type="file" (change)="onFileSelected($event)" />
+        <div *ngIf="newsForm.get('image').invalid && (newsForm.get('image').dirty || newsForm.get('image').touched)">
+          <div *ngIf="newsForm.get('image').errors['required']"style="color:red">Image is required.</div>
+        </div>
+        <img [src]="sanitizedImageData" *ngIf="imageData" />
+      </div>
 
       <button type="submit" (ngSubmit)="onSubmit()">Create Category</button>
     </form>

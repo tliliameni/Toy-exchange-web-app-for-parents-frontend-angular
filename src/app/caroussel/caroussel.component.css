@@ -1,7 +1,7 @@
 ngb-carousel {
   width: 50%;
   margin: 20px auto;
-  margin-bottom: 10%;
+  margin-bottom: 3%;
 }
 
 ngb-carousel img {
@@ -37,7 +37,7 @@ ngb-carousel {
 
 .carousel-control-prev {
    z-index: 20;
-   color: #0c0b0b;
+   color: #eee5e5;
 }
 
 .carousel-control-next {
@@ -55,11 +55,48 @@ button.carousel-control-next.ng-star-inserted{
   color: #505151;
 }
 .carousel-control-next-icon{
-  color: #0c0b0b;
+  color: #f3eeee;
 }
 .carousel-control-next .ng-star-inserted{
-  color: #0c0b0b;
+  color: #f5eaea;
 }
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 20%;
+}
+
+.picsum-img-wrapper img {
+  width: 70%;
+  height: 70%;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background-color: rgba(250, 245, 245, 0.7);
+}
+
+.carousel-caption span {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .carousel-caption {
+    padding: 40px;
+  }
+
+  .carousel-caption span {
+    font-size: 24px;
+  }
+}
+
 h1 {
     font-size: 80px;
     text-align: center;
@@ -108,5 +145,9 @@ p {
 .text-white span,
 .text-white li,
 .text-white a {
-    color: #0c0b0b;
+    color: #cec5c5;
+}
+.col-md-6 .im
+{
+  align-items: center;
 }

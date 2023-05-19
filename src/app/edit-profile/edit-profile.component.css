@@ -1,0 +1,87 @@
+.back-btn{
+  background-color: #b1889c; /* Change to your desired hover color */
+}
+.back-btn:hover {
+  background-color: #4E7D64;
+
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width:90%;
+
+}
+
+label {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1%;
+}
+
+input[type="file"] {
+  margin-bottom: 1rem;
+}
+
+img {
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+button[type="submit"] {
+  background-color: #b1889c;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 4%;
+}
+
+button[type="submit"]:hover {
+  background-color: #4E7D64;
+}
+
+/* Media queries */
+
+@media only screen and (max-width: 600px) {
+  form {
+    max-width: 400px;
+  }
+
+  input[type="text"],
+  textarea {
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  input[type="text"],
+  textarea {
+    font-size: 0.8rem;
+  }
+}
+/* */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10%;
+
+
+padding-left: 30%;
+margin-top: 6%;
+}

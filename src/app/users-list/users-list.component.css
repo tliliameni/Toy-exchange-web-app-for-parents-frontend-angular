@@ -17,7 +17,10 @@ padding-right: 13%;
 
 
 }
-
+.card:hover{
+  transform: scale(1.05); /* increase size of card on hover */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
 
 .card-image {
   flex-basis: 30%;
@@ -65,19 +68,22 @@ h3{
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
-  font-size: 22px;
+  font-size: 40px;
   line-height: 33px;
-
+margin-bottom:3%;
   text-align: left;
   /* identical to box height */
 
 
   /* neutral-800 */
 
-  color: #262626;
+  color: #c899af;
+}
+th, td{
+  margin-left: 10%;
 }
 .container{
-  padding-left: 30%;
+  padding-left: 10%;
   margin-top: 2%;
   align-items: center;
 }

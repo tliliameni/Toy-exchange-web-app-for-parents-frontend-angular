@@ -16,16 +16,25 @@ constructor(private http: HttpClient,private route: ActivatedRoute,
   private router: Router) { }
 
 getCategoryById(id: number): Observable<Category> {
-  return this.http.get<Category>(`${this.baseUrl}/getById/${id}`);
+  const headers = new HttpHeaders();
+  headers.append('Content-Type', 'multipart/form-data');
+  headers.append('Accept', 'application/json');
+  return this.http.get<Category>(`${this.baseUrl}/getById/${id}`,{ headers: headers });
 }
-createCategories(nom:string): Observable<any> {
+createCategories(formData: FormData): Observable<any> {
+  const headers = new HttpHeaders();
+  headers.append('Content-Type', 'multipart/form-data');
+  headers.append('Accept', 'application/json');
 
-  const formData: FormData = new FormData();
-  formData.append('nom', nom);
-  return this.http.post<any>(`${this.baseUrl}/create`, formData);
+  return this.http.post<any>(`${this.baseUrl}/create`, formData,{ headers: headers });
 }
 getAllCategories(): Observable<any> {
   return this.http.get(`${this.baseUrl}/all`);
+}
+
+getImage(id: number): Observable<any> {
+
+  return this.http.get(`${this.baseUrl}/getImage/${id}`, { responseType: 'blob' });
 }
 getAllCategoriesByMc(mot: string): Observable<any> {
   return this.http.get(`${this.baseUrl}/rechercheParMc/${mot}`);
@@ -33,7 +42,7 @@ getAllCategoriesByMc(mot: string): Observable<any> {
 getByName(nom: string): Observable<Category> {
   return this.http.get<Category>(`${this.baseUrl}/getbyName/${nom}`);
 }
-updateCategory(id: number, nom: string): Observable<any> {
+updateCategory(id: number, file: File,nom: string): Observable<any> {
   const formData: FormData = new FormData();
   formData.append('nom', nom);
   return this.http.put<any>(`${this.baseUrl}/update/${id}`, formData);

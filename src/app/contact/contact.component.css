@@ -1,7 +1,7 @@
 .banderol{
-  width: 100%;
-  height: 510px;
-
+  margin-left: 25%;
+  width: 50%;
+  height: 400px;
 }
 .container {
   width: 100%;
@@ -41,15 +41,14 @@ text-align: center;
 color: #505151;
 }
 h1{
-font-family: 'Jost';
-font-style: normal;
-font-weight: 300;
-font-size: 90px;
-color:#CDA7C6;
-text-align: center;
-line-height: 140px;
-padding-bottom: 2%;
-}
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 250;
+  font-size: 70px;
+  color:#CDA7C6;
+  line-height: 120px;
+  padding-bottom: 2%;
+  }
 
 
 label {

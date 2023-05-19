@@ -74,7 +74,7 @@ button[type="submit"]:hover {
   justify-content: space-between;
   align-items: center;
   margin-left: 10%;
-  width: 2100px;
+  width:calc(100% - 15%);
 
 padding-left: 30%;
 margin-top: 6%;

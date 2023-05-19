@@ -8,16 +8,38 @@ import { Category } from '../Models/category';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private categoryService: CategoryService) { }
+  constructor(private CategoriesService: CategoryService) { }
 
-  categories: Array<Category>;
-  images = ['../../assets/images/playtherapy-removebg-preview.png', '../../assets/images/age +6.webp', '../../assets/images/specialneeds.png', '../../assets/images/babyavatar.png', '../../assets/images/littlegirl.png', '../../assets/images/littleboy.jpg'];
 
-  getCategories() {
-    this.categoryService.getAllCategories().subscribe(data => this.categories = data);
-  }
+  CategoriesList: Category[] = [];
 
   ngOnInit(): void {
     this.getCategories();
   }
+
+  getCategories(): void {
+    this.CategoriesService.getAllCategories()
+      .subscribe(
+        data => {
+          this.CategoriesList = data;
+
+          for (let cat of this.CategoriesList) {
+            this.CategoriesService.getImage(cat.id)
+              .subscribe(
+                image => {
+                  const reader = new FileReader();
+                  reader.readAsDataURL(image);
+                  reader.onload = () => {
+                    cat.imagedataUrl = reader.result as string;
+                  };
+                },
+                error => console.log(error)
+              );
+          }
+        },
+        error => console.log(error)
+      );
+  }
+
+
 }
