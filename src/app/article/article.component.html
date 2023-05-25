@@ -48,20 +48,16 @@
     <div class="row">
       <div class="col-md-4" *ngFor="let article of articlesList.reverse() | paginate: { itemsPerPage: 9, currentPage: p }">
         <div class="card" style="height:450px;">
-          <h5 class="card-title"><mat-icon style="padding-top:2%">account_box</mat-icon> {{ article.user.username }}</h5>
+
           <img [src]="article.imageDataUrl" class="card-img-top" alt="..." style=" display: block;
           margin-left: auto;
           margin-right: auto;
           width: 80%;height:40%;padding-top:10px">
+          <h5 class="card-title"><img [src]="article.user.imagedataUrl || '../../assets/images/anonymoususer.jpg'" alt="Profile Picture" > {{ article.user.username }}</h5>
           <div class="card-body">
+            <h5 class="card-text truncate">Price : {{ article.price}} dinars</h5>
+            <h5 class="card-text truncate">Accept exchange: {{ article.exchange }}</h5>
 
-            <h5 class="card-title">title: {{ article.title }}</h5>
-            <h5 class="card-title">Category : {{ article.category.nom }}</h5>
-
-            <p class="card-text truncate" [ngClass]="{'expanded': article.expanded}">
-              {{ article.description }}
-              <span *ngIf="!article.expanded">...</span>
-            </p>
             <button class="btt" (click)="viewmore(article.id)">See details</button>
           </div>
         </div>

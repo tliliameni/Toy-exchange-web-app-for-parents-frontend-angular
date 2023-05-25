@@ -1,14 +1,11 @@
+<mat-toolbar color="primary" class="t">
+  <mat-toolbar-row class="center-row">
+    <a href=""><span><img src="../../assets/images/logo.png" style="width: 40%;"></span></a>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-  <mat-toolbar color="primary" class="t">
-    <mat-toolbar-row>
-      <a href=""><span><img src="../../assets/images/logo.png" style=" width: 25%;"></span></a>
 
-
-
-    </mat-toolbar-row>
-  </mat-toolbar>
-
- <div class="login-page" style="background-color: #F0FEFF;">
+ <div class="login-page" >
     <div class="form">
       <form
       *ngIf="!isSuccessful"
@@ -60,7 +57,7 @@ email
             name="password"
             [(ngModel)]="form.password"
             required
-            minlength="6"
+            minlength="8"
             #password="ngModel"
             [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
 

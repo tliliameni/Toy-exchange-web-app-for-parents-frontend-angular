@@ -20,13 +20,14 @@
     </div>
     <div class="row">
       <div class="col-md-4" *ngFor="let news of newsList.reverse() | paginate: { itemsPerPage: 9, currentPage: p }">
-        <div class="card" style="height:400px;">
+        <div class="card" style="height:auto;">
           <img [src]="news.imageDataUrl" class="card-img-top" alt="..." style=" display: block;
           margin-left: auto;
           margin-right: auto;
           width: 80%;margin-top:2%">
           <div class="card-body">
             <h5 class="card-title">{{ news.title }}</h5>
+            <h5 class="card-date">Created at: {{news.createdAt | date:'mediumDate' }}</h5>
             <p class="card-text truncate" [ngClass]="{'expanded': news.expanded}">
               {{ news.description }}
               <span *ngIf="!news.expanded">...</span>

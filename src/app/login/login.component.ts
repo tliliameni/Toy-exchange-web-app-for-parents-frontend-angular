@@ -17,10 +17,13 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
+  showPassword=false;
   roles: string[] = [];
 
   constructor(private authService: AuthService, private storageService: StorageService,private router: Router) { }
-
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
   ngOnInit(): void {
     if (this.storageService.isLoggedIn()) {
       this.isLoggedIn = true;

@@ -16,11 +16,16 @@ ngb-carousel {
   width: inherit;
   height: inherit;
 }
-
+img:hover{
+  filter: grayscale(100%);
+}
 .carousel-inner {
   overflow: visible;
 }
-
+img{
+  width: 20%;
+  height: 20%;
+}
 .carousel-item {
   display: flex !important;
   opacity: 0;
@@ -85,6 +90,9 @@ button.carousel-control-next.ng-star-inserted{
   font-size: 18px;
   font-weight: bold;
   color: #fff;
+}
+h3{
+  text-align: center;
 }
 
 @media (min-width: 768px) {

@@ -1,15 +1,22 @@
 <app-header-test></app-header-test>
 <div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <img class="img-fluid" [src]="news.imagedataUrl" alt="{{news.title}}" />
-    </div>
 
-    <div class="col-md-6">
-      <h2 class="mb-3">{{news.title}}</h2>
-      <p>{{news.description}}</p>
+  <div class="card">
+    <button class="back-button" routerLink="/news"><mat-icon>arrow_back</mat-icon> Back to news Page</button>
+    <div class="card-header">
+    <div class="card-body">
+      <div class="image-container">
+        <img class="img-fluid" [src]="news.imagedataUrl" alt="{{news.title}}" />
+      </div>
+      <div class="details-container">
+        <h1> Created at: {{ news.createdAt  | date:'mediumDate' }}</h1>
+        <h1 class="article-description">{{news.title}}</h1>
 
+
+        <p class="article-content">{{news.description}}</p>
+      </div>
     </div>
-  </div>
+    </div></div>
 </div>
+
 <app-footer></app-footer>

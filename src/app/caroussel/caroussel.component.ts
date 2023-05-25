@@ -29,6 +29,9 @@ export class CarouselComponent  implements OnInit {
 
    this.getArticles();
  }
+ viewmore(id: number) {
+  this.router.navigate(['/articledetails', id]);
+}
  getArticles(): void {
    this.articleService.getAllArticles()
      .subscribe(

@@ -5,6 +5,14 @@
   justify-content: center;
   align-items: center;
 }
+.center-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 45px;
+}
+
 input{
   align-items: center;
 }
@@ -12,8 +20,8 @@ input{
   flex: 1 1 auto;
 }
 .mat-toolbar.mat-primary {
-  background:#F0FEFF;
-  color: #1a1616;
+  background:white;
+  text-align: center;
   z-index: 100;
 }
 .lab1{

@@ -5,5 +5,6 @@ description!:String;
 photo!:String;
 formdata: FormData = new FormData();
 imagedataUrl:String;
+createdAt: Date;
 
 }

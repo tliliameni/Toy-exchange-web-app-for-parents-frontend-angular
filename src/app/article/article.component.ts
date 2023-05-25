@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { PageArticle } from '../Models/PageArticle';
 import { NewsService } from '../services/news.service';
 import { ArticlePageService } from '../services/article-page.service';
+import { ProfileService } from '../services/profile.service';
 
 @Component({
   selector: 'app-article',
@@ -27,6 +28,7 @@ export class ArticleComponent implements OnInit {
     private articleService: ArticleService,
     private categoryService: CategoryService,
     private newsService:ArticlePageService,
+    private profileService: ProfileService,
     private router: Router
   ) {}
 
@@ -99,6 +101,17 @@ export class ArticleComponent implements OnInit {
         data => {
           this.articlesList = data;
           for (let article of this.articlesList) {
+            this.profileService.getImage( article.user.id).subscribe(
+              data=>{
+                const reader = new FileReader();
+                reader.readAsDataURL(data);
+                reader.onload = () => {
+                  article.user.imagedataUrl = reader.result as string;
+                };
+                console.log(article.user.imagedataUrl);
+              },
+            error => console.log(error)
+          );
             this.articleService.getImage(article.id)
               .subscribe(
                 image => {
@@ -130,6 +143,7 @@ export class ArticleComponent implements OnInit {
         data => {
           this.articlesList = data;
           for (let article of this.articlesList) {
+
             this.articleService.getImage(article.id)
               .subscribe(
                 image => {

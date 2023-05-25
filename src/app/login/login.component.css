@@ -5,35 +5,84 @@
   justify-content: center;
   align-items: center;
 }
-.mat_login_page{
-  
+.center-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 45px;
+}
+
+input{
+  align-items: center;
 }
 .menu-spacer {
   flex: 1 1 auto;
 }
 .mat-toolbar.mat-primary {
-  background:#F0FEFF;
-  color: #1a1616;
+  background:white;
+  text-align: center;
   z-index: 100;
 }
 .lab1{
   text-align: center;
   color: #CDA7C6;
-
   font-size: 35px;
   font-family: "Roboto", sans-serif;
-}
-.container {
-  display: flex;
-  flex-direction: column;
 }
 .lab2{
   text-align: center;
   color: #4E7D64;
-padding-top: 2%;
+  padding-top: 2%;
   margin-bottom: 8%;
   font-size: 15px;
   font-family: "Roboto", sans-serif;
+}
+
+
+.password-container {
+  position: relative;
+  width: 100%;
+align-items: center;
+
+}
+
+
+
+.btn-password-toggle {
+  position: absolute;
+  top: 50%;
+  padding-right: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  border: none;
+  background-color: transparent;
+}
+
+.password-icon {
+  position: absolute;
+  right: 10%;
+  padding-right: 45%;
+  padding-top: 3%;
+  top: 60%;
+  transform: translateY(-70%);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.hide-password {
+  z-index: -1;
+}
+
+.hide-password {
+  display: none;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .form {
   position: relative;
@@ -42,47 +91,71 @@ padding-top: 2%;
   max-width: 45%;
   max-height: 100%;
   width: 100%;
-  margin: 0 auto;
-  margin-top:0%;
-  margin-bottom: 8%;
+  justify-content: center;
+  margin-bottom: 6%;
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-
+.align{
+  align-items: center;
+}
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
+  align-items: center;
   background: #CDA7C6;
-  width: 100%;
+  width: 50%;
+  margin-left: 24%;
+  margin-bottom: 2%;
   border: 0;
-  margin: 0 0 15px;
+
   padding: 15px;
   color: white;
   box-sizing: border-box;
   font-size: 14px;
 }
 
-.form button {
+input[type="checkbox"] {
+  display: inline-block;
+
+
+}
+.check {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  border: 0;
+
+
+}
+.btt{
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
   background: #4E7D64;
-  width: 100%;
+  width: 25%;
   border: 0;
   padding: 15px;
+  border-radius: 10px;
   color: white;
-  font-size: 14px;
+  font-size: 17px;
+ font-weight: bold;
   font-family: 'Lexend Deca';
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+  margin-top: 2%;
 }
 
 .form button:hover,.form button:active,.form button:focus {
-  background: #CDA7C6;
-}
+  background: #d5d3d3;
 
+}
+img{
+  height:70%;
+   width:80%;
+}
 .message {
   margin: 15px 0 0;
   color: #999;
@@ -90,7 +163,7 @@ padding-top: 2%;
 }
 
 .message a {
-  color: #4E7D64;
+  color: #CDA7C6;
   text-decoration: none;
 }
 
@@ -115,6 +188,59 @@ padding-top: 2%;
 
   display:-webkit-box;
 
-padding-left: 65%;
+padding-left: 68%;
+
+  }
+  @media screen and ( max-width:990px) and (min-width:300px) {
+    .login-page {
+      flex-direction: column;
+      height: auto;
+      align-items: center;
+    }
+
+    .login-page {
+      width: 100%;
+      height: 91vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    img{
+      width: 50%;
+    height: 20%;
+    }
+    .form input{
+      width: 50%;
+    }
+    .form {
+      position: relative;
+      z-index: 1;
+      background: #F0FEFF;
+      max-width: 90%;
+      max-height: 100%;
+      width: 100%;
+
+      margin-bottom: 6%;
+      padding: 45px;
+      text-align: center;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+
+
+
+      display:-webkit-box;
+
+    padding-left: 60%;
+
+      }
+.password-icon {
+
+  right: 5%;
+  padding-right: 50%;
+
+}
 
   }

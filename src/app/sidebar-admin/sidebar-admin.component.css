@@ -38,7 +38,7 @@ width: 28px;
 }
 
 .nav-item {
-  margin-bottom: 10px;
+  margin-top: 10px;
   font-family: 'Poppins';
 font-style: normal;
 font-weight: 400;
@@ -57,7 +57,7 @@ letter-spacing: 0.02em;
 }
 
 .nav-link:hover {
-  background-color: #4E7D64;
+  background-color: #e2bedf;
 }
 
 .active {
