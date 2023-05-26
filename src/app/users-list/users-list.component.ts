@@ -5,6 +5,7 @@ import { DashboardService, NewUserCount } from '../services/dashboard.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ProfileService } from '../services/profile.service';
 
 @Component({
   selector: 'app-users-list',
@@ -18,7 +19,7 @@ export class UsersListComponent implements OnInit{
   usernames: string[];
   users: import("c:/Users/dell/projectPFE/src/app/Models/User").User[];
   newsCount: number;
-
+  image: File;
   getNewUsersByDays(days: number = 7) {
     this.dashboardService.getNewUsersByDays(days)
       .subscribe(newUserCounts =>{
@@ -33,7 +34,7 @@ export class UsersListComponent implements OnInit{
   articleCount: number;
 
 
-  constructor(private articleServise: ArticleService,  private snackBar: MatSnackBar,public dialog: MatDialog,private http: HttpClient,private dashboardService: DashboardService) {}
+  constructor(private articleServise: ArticleService, private profileService:ProfileService, private snackBar: MatSnackBar,public dialog: MatDialog,private http: HttpClient,private dashboardService: DashboardService) {}
   getArticlesCount() {
     this.http.get<number>('http://localhost:8090/Articles/articles-count')
       .subscribe(count => {
@@ -54,7 +55,21 @@ export class UsersListComponent implements OnInit{
       getAllUsers() {
         this.dashboardService.getAllUsers().subscribe(users => {
           this.users = users;
-        });
+          for (let us of this.users) {
+            this.profileService.getImage(us.id).subscribe(
+              data=>{
+                const reader = new FileReader();
+                reader.readAsDataURL(data);
+                reader.onload = () => {
+                  us.imagedataUrl = reader.result as string;
+                };
+                console.log(us.imagedataUrl);
+              },
+            error => console.log(error)
+          );
+            }
+
+          });
       }
 
   ngOnInit() {

@@ -1,53 +1,24 @@
-<div class="card-container">
-  <div class="card">
-    <div class="card-image">
-      <img src="../../assets/images/u_shopping-bag.png" alt="Card Image">
-    </div>
-    <div class="card-content">
-      <h2>Total articles</h2>
-      <p>{{ articleCount }} Articles</p>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-image">
-      <img src="../../assets/images/u_users-alt.png" alt="Card Image">
-    </div>
-    <div class="card-content">
-      <h2>Total accounts</h2>
-      <p>{{ usercount }} Accounts</p>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-image">
-      <img src="../../assets/images/u_list-ui-alt.png" alt="Card Image">
-    </div>
-    <div class="card-content">
-      <h2>Total News</h2>
-      <p>{{newsCount}}</p>
-    </div>
-  </div>
-</div>
-
-
-
 <div class="container">
   <h3 >Accounts</h3>
   <table class="table table-responsive">
     <thead>
       <tr>
+        <th>profile picture</th>
         <th>username</th>
         <th>email address</th>
-        <th>creation date</th>
+        <th>created on</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of users">
+        <td>  <img [src]="user.imagedataUrl || '../../assets/images/anonymoususer.jpg'" alt="Profile Picture" /></td>
         <td>{{ user.username }}</td>
         <td>{{ user.email }}</td>
-        <td>{{ user.createdAt }}</td>
+        <td class="date">{{ user.createdAt }}</td>
         <td>
-          <button class="btn-hover" (click)="openConfirmationDialog(user.id)">delete</button>
+          <button mat-icon-button color="warn" aria-label="Delete" (click)="openConfirmationDialog(user.id)">
+            <mat-icon>delete</mat-icon></button>
         </td>
       </tr>
     </tbody>

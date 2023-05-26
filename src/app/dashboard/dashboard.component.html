@@ -36,18 +36,20 @@
 <span style="color:#505151"> We have </span> {{counter}} new users&nbsp;<span style="color:#505151"> for this week</span>
 </h3>
 <div class="table-container">
-<table class="table-responsive" >
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th style="padding-left:30%">New users</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let newUserCount of newUserCounts">
-      <td >{{ newUserCount.date }}</td>
-      <td style="padding-left: 40%;">{{ newUserCount.count }}</td>
-    </tr>
-  </tbody>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>New users number</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let newUserCount of newUserCounts">
+        <td >{{ newUserCount.date }}</td>
+        <td >{{ newUserCount.count }}</td>
+      </tr>
+    </tbody>
+
 </table>
 </div>

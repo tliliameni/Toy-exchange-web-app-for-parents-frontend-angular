@@ -18,7 +18,6 @@ export class EditProfileComponent  implements OnInit {
   user1:User;
  // editForm: FormGroup;
 
-  imageURL: string;
   phone:string;
   showPreview(event) {
     const file = (event.target as HTMLInputElement).files[0];
@@ -26,19 +25,17 @@ export class EditProfileComponent  implements OnInit {
       photo: file
     });
     this.editForm.get('photo').updateValueAndValidity();
-  
+
     // File Preview
     const reader = new FileReader();
     reader.onload = () => {
-      this.imageURL = reader.result as string;
-      this.editForm.get('photo').setValue(this.imageURL); // Update photo form control with the image URL
+      this.user.imagedataUrl = reader.result as string;
+      this.editForm.get('photo').setValue(this.user.imagedataUrl); // Update photo form control with the image URL
     }
     reader.readAsDataURL(file);
   }
 
 
-  image: any;
-  imageDataUrl: any;
   constructor(private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
@@ -63,7 +60,7 @@ export class EditProfileComponent  implements OnInit {
     this.user.phoneNumber = this.phone;
     console.log("Phone: " + this.phone);
     this.editForm.get('phone').setValue(this.phone);
-    console.log("hhhhh"+this.editForm);
+
   });
     //this.user.phoneNumber=this.phone;
 
@@ -74,8 +71,8 @@ export class EditProfileComponent  implements OnInit {
 
   onFileSelect(event): void {
     if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.editForm.get('photo').setValue(file);
+      const photo = event.target.files[0];
+      this.editForm.get('photo').setValue(photo);
     }
 
   }

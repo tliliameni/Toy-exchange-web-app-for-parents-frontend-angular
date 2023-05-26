@@ -7,9 +7,9 @@
     <label>Update profile picture if you want</label>
     <div>
 
-      <input type="file" (change)="showPreview($event)" enctype="multipart/form-data" />
+      <input type="file" (change)="onFileSelect($event)" enctype="multipart/form-data" />
       <div *ngIf="editForm.get('photo')">
-        <img [src]="imageURL" alt="Preview" class="preview-image" *ngIf="imageURL" />
+        <img [src]="user.imagedataUrl" alt="Preview" class="preview-image" *ngIf="user.imagedataUrl" />
       </div>
     </div>
     <label>Username:</label>

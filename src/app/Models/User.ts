@@ -5,7 +5,8 @@ export class User{
   password:String;
   createdAt: Date;
   roles: Role[];
-  file:File;
+  //file:File;
+  photo:File;
   imagedataUrl:String;
   phoneNumber:string;
 }
