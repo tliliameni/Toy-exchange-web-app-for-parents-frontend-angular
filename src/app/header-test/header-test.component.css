@@ -23,8 +23,8 @@ button :hover{
   position: sticky; top: 0;
   padding-right: 35px;
   padding-right: 40px;
-  background: transparent;
-  z-index: 999;
+background: white;
+  z-index:999;
   margin-right: auto;
   margin-left: auto;
 }

@@ -14,12 +14,9 @@ import { PageHomeService } from '../services/pageHome.service';
 export class AdminPageHomeComponent implements OnInit {
   newsId: number;
   editForm: FormGroup;
-  title: String;
+
   imageURL: string;
  Contact:HomePage;
-
-  searchQuery: string = '';
-  p: number = 1;
   List:  any = [];
 
   constructor(private newsService: PageHomeService,public dialog: MatDialog, private formBuilder: FormBuilder,
@@ -44,7 +41,7 @@ this.getAll();
       console.log(data)
       console.log(data.photo)
       this.Contact = data;
-      
+
     });
     this.newsService.getHomePageById(3).subscribe(data => {
       console.log(data)
@@ -92,14 +89,32 @@ this.getAll();
     }
 
   }
-
   onSubmit(): void {
+    const id = 1;
+    const photo = this.editForm.get('photo').value;
+    const title = this.editForm.get('title').value;
+    const subtitle = this.editForm.get('subtitle').value;
+    const description = this.editForm.get('description').value;
+    const formData = new FormData();
+    formData.append('photo', this.editForm.get('photo').value);
+    formData.append('title', this.editForm.get('title').value);
+    formData.append('description', this.editForm.get('description').value);
 
-    this.newsService.updateHomePage(1, this.editForm.get('photo').value, this.editForm.get('title').value,this.editForm.get('subtitle').value, this.editForm.get('description').value).subscribe(() => {
-      console.log('Page Home section 1 updated successfully!');
-      this.snackBar.open('Page Home section 1 updated successfully!', 'Dismiss', { duration: 3000 });
-    });
+    this.newsService.updateHomePage(id, photo, title, subtitle, description)
+      .subscribe(
+        () => {
+          console.log('Page Home section 1 updated successfully!');
+          this.snackBar.open('Page Home section 1 updated successfully!', 'Dismiss', { duration: 3000 });
+        },
+        (error) => {
+          console.error('Failed to update Page Home section 1:', error);
+          // Handle the error 
+          this.snackBar.open('Failed to update Page Home section 1', 'Dismiss', { duration: 3000 });
+        }
+      );
   }
+
+
 }
 
 

@@ -89,6 +89,7 @@ export class AdminPageMentionLegalComponent implements OnInit {
       console.log('Page Contact updated successfully!');
       this.snackBar.open('Page Contact item updated successfully!', 'Dismiss', { duration: 3000 });
     });
+    
   }
 }
 

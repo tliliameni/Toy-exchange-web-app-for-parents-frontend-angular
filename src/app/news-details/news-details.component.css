@@ -105,3 +105,11 @@
   color:#565756;
 
 }
+@media only screen and (max-width: 790px) {
+  .container{
+    margin-bottom: 5%;
+    height: auto;
+    margin-top: 1%;
+
+  }
+}

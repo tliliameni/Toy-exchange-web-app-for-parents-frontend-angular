@@ -36,6 +36,8 @@ import { AdminPageMentionLegalComponent } from './admin-page-mention-legal/admin
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { HomeFinalComponent } from './home-final/home-final.component';
 import { AdminPageHomeComponent } from './admin-page-home/admin-page-home.component';
+import { AdminPageHomeEditComponent } from './admin-page-home-edit/admin-page-home-edit.component';
+import { ArticleUpdateComponent } from './article-update/article-update.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent ,pathMatch: 'full',
@@ -77,6 +79,11 @@ const routes: Routes = [
       {
         path: 'editcategory/:id',
         component: CategoryUpdateComponent,
+
+      },
+      {
+        path: 'editHome/:id',
+        component: AdminPageHomeEditComponent,
 
       },
       {
@@ -142,6 +149,10 @@ const routes: Routes = [
   {
     path: 'editProfile/:id',canActivate: [AuthGuard],
     component: EditProfileComponent,
+  },
+  {
+    path: 'editarticle/:id',canActivate: [AuthGuard],
+    component: ArticleUpdateComponent,
   },
   {
     path: 'articles',

@@ -46,11 +46,11 @@ getImage(id: number): Observable<any> {
   formData.append('description', description);*/
  /* return this.http.put(`${this.baseUrl}/update/${id}`, newsData,{ headers: headers });
 }*/
-updateHomePage(id: number, file: File,title: string,subtitle:string, description: string) {
+updateHomePage(id: number, photo: File,title: string,subtitle:string, description: string) {
   const formData = new FormData();
-  formData.append('file', file);
+  formData.append('file', photo);
   formData.append('title', title);
-  formData.append('title', subtitle);
+  formData.append('subtitle', subtitle);
   formData.append('description', description);
 
   return this.http.put(`${this.baseUrl}/update/${id}`, formData);
