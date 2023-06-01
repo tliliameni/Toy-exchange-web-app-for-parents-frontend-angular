@@ -35,6 +35,7 @@ import { AdminPageNewsComponent } from './admin-page-news/admin-page-news.compon
 import { AdminPageMentionLegalComponent } from './admin-page-mention-legal/admin-page-mention-legal.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { HomeFinalComponent } from './home-final/home-final.component';
+import { AdminPageHomeComponent } from './admin-page-home/admin-page-home.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent ,pathMatch: 'full',
@@ -96,6 +97,11 @@ const routes: Routes = [
       {
         path: 'mentionlegalPage',
         component: AdminPageMentionLegalComponent,
+
+      },
+      {
+        path: 'HomePage',
+        component:AdminPageHomeComponent,
 
       },
       {

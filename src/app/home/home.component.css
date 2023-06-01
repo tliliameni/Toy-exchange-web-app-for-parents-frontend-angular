@@ -159,6 +159,7 @@ h2{
 @media only screen and (min-width: 768px) {
   .container {
     flex-direction: row;
+
   }
 }
 
@@ -175,12 +176,57 @@ h2{
     margin-right: 50%;
     margin-top: 1%;
   }
+  .news{
+    bottom: 20%;
+  }
+  .container .bloc_explore:before{
+    position: absolute;
+    content: "";
+    background-image: url('../../assets/images/Group.png');
+    background-repeat: no-repeat;
+    background-size: 10% 10%;
 
+    bottom:300px;
+   margin-right: 500px;
+    width: 10%;
+    height:5%;
+    opacity: 0;
+    margin-top: 0px;
+  }
 
 }
+.bloc_explore:before{
+  position: absolute;
+  content: "";
+  background-image: url('../../assets/images/Group.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: -80px;
+  right: 300px;
+  width: 379px;
+  height: 228px;
+  opacity: 0.4;
+}
 @media only screen and (max-width: 768px) {
-  .imagee{
-    width: 70%;
+
+  .item2{
+    background-size: 90% 100%;
+    margin-left: 10%;
+    margin-top: 60%;
+  }
+  .bloc_explore:before{
+    position: absolute;
+    content: "";
+    background-image: url('../../assets/images/Group.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: -20px;
+    right:40%;
+
+    width: 120px;
+
+    height: 70px;
+    opacity: 0.4;
   }
   .container .left-section h1 {
 
@@ -305,15 +351,7 @@ margin-top: 1%;
   margin-bottom: 20px;
 }
 
-.right-section button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 18px;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
+
 
 .right-section img {
   max-width: 100%;
@@ -322,18 +360,7 @@ margin-top: 1%;
 .bloc_explore{
   position: relative;
 }
-.bloc_explore:before{
-  position: absolute;
-  content: "";
-  background-image: url('../../assets/images/Group.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  bottom: -20px;
-  right: -90px;
-  width: 379px;
-  height: 228px;
-  opacity: 0.4;
-}
+
 /* view button*/
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
@@ -343,7 +370,7 @@ margin-top: 1%;
 }
 
 body {
-  height: 80vh;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -360,12 +387,17 @@ body {
     text-decoration: none;
     font-family: 'Jost';
     font-style: normal;
-    font-size: 30px;
+    font-size: 35px;
     color: white;
     background: #CDA7C6;
     transition: 1s;
     box-shadow: 6px 6px 0 #ad8fa8;
     transform: skewX(-15deg);
+}
+@media only screen and (max-width: 768px) {
+  .cta{
+    font-size: 15px;
+  }
 }
 
 .cta:focus {

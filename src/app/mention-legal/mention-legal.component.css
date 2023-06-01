@@ -10,16 +10,16 @@
 }
 
 .legal-mentions-container img {
-  width: 50%;
+  width: 10%;
   height: auto;
-
+ align-items: center;
   margin-right: 20px;
   border-radius: 5px;
 
 }
+
 .legal-mentions-container img:hover {
-  transform: scale(1.1);
-  transition: transform 0.2s ease-in-out;
+  filter:grayscale(100%);
 }
 
 .information-container {
@@ -86,11 +86,19 @@ section {
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     color: #3f345f;
 }
+h1{
+  text-align: left;
+  font-size: 40px;
+  padding-top: 20px;
+ font-weight: 400;
+ line-height: 10px;
+}
 
 h2 {
     font-size: 36px;
+    padding-top: 20px;
     padding-right: 4%;
-    text-align: center;
+    text-align: left;
 }
 
 .social-overlap {

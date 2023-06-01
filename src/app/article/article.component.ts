@@ -32,7 +32,7 @@ export class ArticleComponent implements OnInit {
     private router: Router
   ) {}
 
-  getNews(): void {
+  getPage(): void {
     this.newsService.getPageContactById(1)
       .subscribe(
         data => {
@@ -92,7 +92,7 @@ export class ArticleComponent implements OnInit {
       error => console.log(error)
     );
     this.getArticles();
-    this.getNews();
+    this.getPage();
   }
 
   getArticles(): void {

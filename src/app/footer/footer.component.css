@@ -25,6 +25,7 @@ padding-left: 50%;
   padding: 20px;
   background-color: #4E7D64;
   width: 100%;
+  z-index: 999;
 }
 
 .copy-right {

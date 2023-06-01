@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { StorageService } from '../services/storage.service';
+import { ProfileService } from '../services/profile.service';
 
 @Component({
   selector: 'app-header-test',
@@ -11,12 +12,25 @@ export class HeaderTestComponent  {
   [x: string]: any;
   isLoggedIn = false;
   username?: string;
-  constructor(private authService: AuthService,private storageService: StorageService) { }
+imagedataurl:string;
+  constructor(private authService: AuthService,private storageService: StorageService,private profileService:ProfileService) { }
 
     ngOnInit() {
       this.isLoggedIn = this.storageService.isLoggedIn();
       if (this.isLoggedIn) {
         const user = this.storageService.getUser();
+        this.profileService.getImage(user.id).subscribe(
+          data=>{
+            const reader = new FileReader();
+            reader.readAsDataURL(data);
+            reader.onload = () => {
+              user.imagedataUrl = reader.result as string;
+              this.imagedataurl=user.imagedataUrl;
+            };
+            console.log(user.imagedataUrl);
+          },
+        error => console.log(error)
+      );
 
         this.username = user.username;
       }

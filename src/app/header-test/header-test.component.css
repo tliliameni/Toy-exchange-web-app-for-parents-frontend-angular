@@ -9,6 +9,9 @@
 .nav-link{
   padding-left: 30%;
 }
+button :hover{
+  background-color: transparent;
+}
 .navbar-nav .mr-auto{
   width: 100%;
 
@@ -17,17 +20,21 @@
 .container {
   width: 100%;
   max-width: 100%;
+  position: sticky; top: 0;
   padding-right: 35px;
   padding-right: 40px;
+  background: transparent;
+  z-index: 999;
   margin-right: auto;
   margin-left: auto;
 }
 
 .navbar {
-  justify-content: space-between;
+  justify-content: space-around;
+
   font-family: 'Jost';
   font-weight: 200;
-position:relative;
+  position: sticky; top: 0;
 
   font-size: 20px;
 
@@ -74,5 +81,39 @@ position:relative;
 @media (max-width: 767px) {
   .navbar-collapse {
     margin-top: 10px;
+  }
+}
+@media (max-width: 1000px) {
+  .container {
+    padding-right: 10px;
+    padding-left: 20px;
+  }
+
+  .navbar-nav .nav-link {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .navbar-brand img {
+    width: 35%;
+    height: auto;
+  }
+  .navbar-nav .mr-auto{
+    width: 80%;
+
+    align-items: center;
+  }
+ .image img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  .navbar {
+    justify-content: space-around;
+    font-family: 'Jost';
+    font-weight: 200;
+  position:relative;
+
+    font-size: 13px;
+
   }
 }

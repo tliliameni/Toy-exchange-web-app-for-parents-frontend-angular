@@ -91,10 +91,17 @@ button.carousel-control-next.ng-star-inserted{
   font-weight: bold;
   color: #fff;
 }
-h3{
+.col-md-6 h3{
   text-align: center;
-}
+  padding-right: 20%;
 
+}
+.col-md-6{
+  padding-left: 8%;
+}
+.row{
+  align-items: center;
+}
 @media (min-width: 768px) {
   .carousel-caption {
     padding: 40px;
@@ -118,7 +125,6 @@ span {
     font-size: 70px;
 }
 
-Discover
 h3 {
     font-size: 30px;
 }
@@ -158,4 +164,6 @@ p {
 .col-md-6 .im
 {
   align-items: center;
+  width: 60%;
+  height: 300px;
 }

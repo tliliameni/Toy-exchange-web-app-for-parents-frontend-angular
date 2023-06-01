@@ -16,23 +16,23 @@
     font-size: 50px;
     line-height: 60px;">
 
-      <span style="color:#4E7D64"> Discover</span> Toys for exchange&nbsp;
+     {{homePage1.title}}
     </h3>
     <h5 style="color:#505151; margin-top:7%;font-family: 'Jost';
     font-style: normal;
     font-weight: 400;
     font-size: 30px;
-    line-height: 30px;" > No more waisting toys!</h5>
+    line-height: 30px;" >{{homePage1.subtitle}}</h5>
     <p style="color:#A3A3A3;font-family: 'Jost';
     font-style: normal;
     font-weight: 300;
     font-size: 25px;
     line-height: 30px;
-    letter-spacing: 0.22em;" > Sell old toys or exchange them now! </p>
+    letter-spacing: 0.22em;" >{{homePage1.description}}</p>
 
   </div>
   <div class="grid-item"class="item2" >
-    <img src="../../assets/images/toygreen-removebg-preview 1 (1).png" width="70%">
+    <img [src]="homePage1.imagedataUrl" width="70%">
   </div>
 
 </div>
@@ -108,8 +108,8 @@
 </div>-->
 <div class="container bloc_explore" style="margin-bottom:7%;">
   <div class="left-section">
-    <h1>EXPLORE!</h1>
-    <img class="imagee" src="../../assets/images/parents children 1.png" alt="Image">
+    <h1>{{homePage2.title}}</h1>
+    <img class="imagee" [src]="homePage2.imagedataUrl" alt="Image">
   </div>
   <div class="right-section">
     <h3 style="font-family: 'Jost';
@@ -119,12 +119,11 @@
     line-height: 50px;
     text-align:left;
     /* Dark text color */
-    color:#4E7D64;"><span style="color:#2D2D2D">What’s your</span> Child’s
-      Choice?</h3>
-    <p>Choose the right toy with your child, see the toys published by other parents, exchange with them or buy!</p>
+    color:#4E7D64;">{{homePage2.subtitle}}</h3>
+    <p>{{homePage2.description}}</p>
     <div class="wrapper">
       <a class="cta" href="/articles">
-        <span>See Articles</span>
+        <span>Articles</span>
         <span>
           <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -140,13 +139,13 @@
   </div>
 </div>
 <app-carousel></app-carousel>
-<div class="news" style="margin-bottom:7%;margin-top:7%;">
-  <div class="container">
-    <div class="left-section">
-      <h1>Explore NEWS!</h1>
-      <img class="imagee" src="../../assets/images/new.avif" alt="Image">
+<div class="news " style="margin-bottom:7%;margin-top:7%;">
+  <div class="container bloc_explore">
+    <div class="left-section ">
+      <h1>{{homePage3.title}}</h1>
+      <img class="imagee" [src]="homePage3.imagedataUrl" alt="Image">
     </div>
-    <div class="right-section">
+    <div class="right-section"  >
       <h3 style="font-family: 'Jost';
       font-style: normal;
       font-weight: 200;
@@ -155,12 +154,12 @@
       text-align:left;
       /* Dark text color */
 
-      color:#4E7D64;"><span style="color:#2D2D2D">What’s Play</span> Therapy
-        Choice?</h3>
-      <p>Learn about play therapy and other news about children and toys now! Toys are not for fun only, you can help your child gain skills while playing</p>
+      color:#4E7D64;">{{homePage3.subtitle}}
+        </h3>
+      <p>{{homePage3.description}}</p>
       <div class="wrapper">
         <a class="cta" href="/news">
-          <span>See our News</span>
+          <span>News</span>
           <span>
             <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -172,7 +171,7 @@
           </span>
         </a>
       </div>
-      <img src="../../assets/images/Group.png" alt="Image" width="60%" height="60%">
+
     </div>
   </div>
 </div>

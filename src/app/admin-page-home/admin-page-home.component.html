@@ -1,0 +1,78 @@
+
+
+<h2 style="text-align:center;padding-top:3%">Edit Home Page</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Subtitle</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of List">
+      <td>
+        <img [src]="item.imageDataUrl" class="card-img-top" alt="..." style=" display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 40%;
+          margin-top:2%">
+      </td>
+      <td>{{ item.title }}</td>
+      <td>{{ item.subtitle }}</td>
+      <td>
+        <p class="card-text truncate" [ngClass]="{'expanded': item.expanded}">
+          {{ item.description }}
+          <span *ngIf="!item.expanded">...</span>
+        </p>
+      </td>
+      <td class="action">
+        <button mat-icon-button color="primary" aria-label="View"(click)="viewmore()">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <button mat-icon-button color="accent" aria-label="Edit" (click)="edit(item.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="container">
+<div class="card">
+  <button class="back-button" routerLink="/news"> See Home Page <mat-icon>visibility</mat-icon></button><button mat-icon-button color="primary" aria-label="View"(click)="viewmore()">
+
+  </button>
+  <div class="card-header">
+  <div class="card-body">
+
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+    <label >Title:</label>
+    <input type="text" formControlName="title" />
+    <div *ngIf="editForm.get('title').invalid && (editForm.get('title').dirty || editForm.get('title').touched)">
+      <div *ngIf="editForm.get('title').errors['required']" style="color:red">Title is required.</div>
+    </div>
+
+    <label >subtitle:</label>
+    <input type="text" formControlName="subtitle" />
+    <div *ngIf="editForm.get('subtitle').invalid && (editForm.get('subtitle').dirty || editForm.get('subtitle').touched)">
+      <div *ngIf="editForm.get('subtitle').errors['required']" style="color:red">Subtitle is required.</div>
+    </div>
+
+
+  <label>Description:</label>
+  <textarea formControlName="description"></textarea>
+  <div *ngIf="editForm.get('description').invalid && (editForm.get('description').dirty || editForm.get('description').touched)">
+    <div *ngIf="editForm.get('description').errors['required']"style="color:red">Description is required.</div>
+  </div>
+
+  <label>Banderol image:</label>
+  <input type="file" (change)="onFileSelect($event)" enctype="multipart/form-data" />
+    <div *ngIf="editForm.get('photo')"style="color:red"></div>
+  <button type="submit" class="btn btn-primary">Update Home Page section 1</button>
+</form>
+  </div></div></div>
+</div>

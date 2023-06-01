@@ -4,23 +4,23 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#"><img src="../../assets/images/logo.png" style="width: 29%; height:20%;"></a>
+    <a class="navbar-brand" href="#"><img src="../../assets/images/logo.png" ></a>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">|Home|</a>
+          <a class="nav-link" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="articles">|Articles|</a>
+          <a class="nav-link" href="articles">Articles</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="news">|News|</a>
+          <a class="nav-link" href="news">News</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="aboutus">|About Us|</a>
+          <a class="nav-link" href="aboutus">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact">|Contact|</a>
+          <a class="nav-link" href="contact">Contact</a>
         </li>
 
       </ul>
@@ -29,15 +29,22 @@
           <a class="nav-link" href="login">Login</a>
         </li>
         <li class="nav-item" *ngIf="isLoggedIn">
-          <a class="nav-link"  [matMenuTriggerFor]="menu">
-            <mat-icon style="padding-top: 5px;padding-bottom:8px;">account_box</mat-icon>{{ username }}
-          </a>
+          <button class="btt" mat-icon-button [matMenuTriggerFor]="menu"  ><img [src]="imagedataurl" style="width: 50px;
+            height: 50px;
+            border-radius: 50%;"></button>
         </li>
       </ul>
       <ul>
-      <mat-menu #menu="matMenu">
+
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="/profile">
+            <img [src]="imagedataurl" style="width: 60px;
+            height: 60px;
+            border-radius: 50%;text-align:center;"> <p style="font-size: 14px;text-align:center;">{{username}}</p>
+          </button>
+
         <button mat-menu-item routerLink="/profile">
-          <mat-icon>account_box</mat-icon> Profile
+          <mat-icon>account_box</mat-icon>Profile
         </button>
         <button mat-menu-item (click)="logout()">
           <mat-icon>input</mat-icon>Logout

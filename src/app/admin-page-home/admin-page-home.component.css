@@ -3,14 +3,37 @@
 
   justify-content: center;
   align-items: center;
-  height: 70vh;
-margin-top: 3%;
+  height: 100vh;
+margin-top: 6%;
 
 
 }
 label{
   text-align: left;
 }
+table{
+  margin-top: 8%;
+  margin-left: 18%;
+  align-items: center;
+  width: 80%;
+
+}
+th{
+  padding-bottom: 2%;
+  text-align: center;
+  width: 20%;
+}
+td{
+  width: 15%;
+  padding-left: 5%;
+}
+td .action{
+  width:25%;
+}
+td {
+  border-top: 1px solid #6e7471;
+}
+
 h3{
   font-family: 'Jost';
   font-style: normal;

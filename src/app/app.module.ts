@@ -87,6 +87,8 @@ import { AdminPageMentionLegalComponent } from './admin-page-mention-legal/admin
 import { HeaderTestComponent } from './header-test/header-test.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { HomeFinalComponent } from './home-final/home-final.component';
+import { AdminPageHomeComponent } from './admin-page-home/admin-page-home.component';
+import { AdminPageHomeEditComponent } from './admin-page-home-edit/admin-page-home-edit.component';
 
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 @NgModule({
@@ -141,6 +143,8 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
     HeaderTestComponent,
     EditProfileComponent,
     HomeFinalComponent,
+    AdminPageHomeComponent,
+    AdminPageHomeEditComponent,
 
   ],
   imports: [
