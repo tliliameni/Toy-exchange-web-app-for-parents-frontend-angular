@@ -6,7 +6,7 @@
   <button class="back-button" routerLink="/news"> See news Page <mat-icon>visibility</mat-icon></button><button mat-icon-button color="primary" aria-label="View"(click)="viewmore()">
 
   </button>
-  <div class="card-header">
+
   <div class="card-body">
 
 <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
@@ -24,10 +24,10 @@
     <div *ngIf="editForm.get('description').errors['required']"style="color:red">Description is required.</div>
   </div>
 
-  <label>Banderol image:</label>
+  <label>Change banderol image:</label>
   <input type="file" (change)="onFileSelect($event)" enctype="multipart/form-data" />
     <div *ngIf="editForm.get('photo')"style="color:red"></div>
   <button type="submit" class="btn btn-primary">Update News Page</button>
 </form>
   </div></div></div>
-</div>
+

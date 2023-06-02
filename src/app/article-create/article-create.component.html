@@ -1,6 +1,8 @@
 <app-header-test></app-header-test>
 <div class="container">
   <h1>{{ pageTitle }}</h1>
+  <div class="card-container">
+    <div class="card">
   <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="title">Title</label>
@@ -50,7 +52,7 @@
         Image is required
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Create</button>
+    <button type="submit" class="btn btn-primary">Create Article</button>
   </form>
-</div>
+</div></div></div>
 <app-footer></app-footer>

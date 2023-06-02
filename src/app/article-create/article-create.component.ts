@@ -14,7 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./article-create.component.css']
 })
 export class ArticleCreateComponent implements OnInit {
-  pageTitle = 'Create Article';
+  pageTitle = 'Create your article';
   categories: any[];
  /* article: any = {};
   categories: any[];
