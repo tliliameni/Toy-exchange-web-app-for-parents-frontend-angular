@@ -2,7 +2,7 @@ export class AboutUs{
   id:number;
   title!:String;
   description!:String;
-  image:File;
+  photo!:String;
   imagedataUrl:String;
 
   }

@@ -47,6 +47,11 @@ export class NewsComponent implements OnInit {
   }
 
   searchNews(): void {
+    if (this.searchQuery === '') {
+      this.resetFilter();
+      return;
+    }
+
     this.newsService.getAllNewsByMc(this.searchQuery)
       .subscribe(
         data => {
@@ -67,6 +72,15 @@ export class NewsComponent implements OnInit {
         },
         error => console.log(error)
       );
+  }
+
+  resetFilter(): void {
+    this.searchQuery = '';
+    // Reset any other filter-related variables or properties if needed
+    // Perform any other actions required to reset the filter
+
+    // Example: Clear the newsList
+    this.newsList = this.getNews();
   }
 
   getNewss(): void {

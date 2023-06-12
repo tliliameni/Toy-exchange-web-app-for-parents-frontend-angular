@@ -1,12 +1,12 @@
 <app-header-test></app-header-test>
-<img src="../../assets/images/aboutus.jpg" class="banderol" >
+<img [src]="aboutus.imagedataUrl" class="banderol" >
 
 <div class="container">
   <div class="top-middle">
     <h1 class="block-effect" style="--td: 1.2s">
       <div class="block-reveal" style="--bc: #d7c2d3; --d: .1s">
-About Us</div></h1>
-<p style="color: rgb(66, 64, 64);">We are ToyTroc a tunisian website that brings toys choices to you</p><p> and give you the chance to exchange your child old toys or sell them here!</p>
+{{aboutus.title}}</div></h1>
+<p style="color: rgb(66, 64, 64);">{{aboutus.description}}</p>
 <p style="padding-top: 3%;">Explore our articles and find the perfct toy for your child by visiting the article section: <button  style="width:80px" routerLink="/news"><a  >visit</a></button></p>
 
 <p style="padding-top: 3%;">We also provide some news about toys, child and play therapy</p>

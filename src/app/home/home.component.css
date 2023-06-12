@@ -246,7 +246,10 @@ h2{
   }
 
 }
-
+p{
+  font-family: 'Jost';
+  font-style: normal;
+}
 .card {
   display: flex;
   flex-basis: calc(33.33% - 10px);

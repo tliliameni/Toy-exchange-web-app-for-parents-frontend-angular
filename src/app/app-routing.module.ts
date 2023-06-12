@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddNewsComponent } from './add-news/add-news.component';
 import { AppComponent } from './app.component';
-import { ChildAddComponent } from './child-add/child-add.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
@@ -34,7 +33,6 @@ import { AdminPageArticleComponent } from './admin-page-article/admin-page-artic
 import { AdminPageNewsComponent } from './admin-page-news/admin-page-news.component';
 import { AdminPageMentionLegalComponent } from './admin-page-mention-legal/admin-page-mention-legal.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
-import { HomeFinalComponent } from './home-final/home-final.component';
 import { AdminPageHomeComponent } from './admin-page-home/admin-page-home.component';
 import { AdminPageHomeEditComponent } from './admin-page-home-edit/admin-page-home-edit.component';
 import { ArticleUpdateComponent } from './article-update/article-update.component';
@@ -199,11 +197,7 @@ const routes: Routes = [
     component: SignupComponent,
 
   },
-  {
-    path: 'addchild',
-    component: ChildAddComponent,
 
-  },
   {
     path: '404',
     component: NotfoundComponent,

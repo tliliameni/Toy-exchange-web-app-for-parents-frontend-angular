@@ -17,6 +17,8 @@ button :hover{
 
   align-items: center;
 }
+
+
 .container {
   width: 100%;
   max-width: 100%;
@@ -39,6 +41,7 @@ background: white;
   font-size: 20px;
 
 }
+
 .navbar-nav{
   padding-right: 10px;
   padding-left: 10px;
@@ -46,9 +49,7 @@ background: white;
   color: #716d6d;
   text-align: center;
 }
-.navbar-nav:hover{
-  color: #a5829f;
-}
+
 .navbar-nav .nav-link {
   padding-right: 50px;
   padding-left: 30px;

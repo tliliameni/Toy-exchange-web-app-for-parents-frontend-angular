@@ -12,7 +12,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let user of users">
-        <td>  <img [src]="user.imagedataUrl || '../../assets/images/anonymoususer.jpg'" alt="Profile Picture" /></td>
+        <td>  <img [src]="user.imagedataUrl" alt="Profile Picture" /></td>
         <td>{{ user.username }}</td>
         <td>{{ user.email }}</td>
         <td class="date">{{ user.createdAt }}</td>

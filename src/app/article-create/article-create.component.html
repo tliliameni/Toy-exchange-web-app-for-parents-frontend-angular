@@ -3,8 +3,10 @@
   <h1>{{ pageTitle }}</h1>
   <div class="card-container">
     <div class="card">
+      <button class="back-button" style="font-family:'Jost';" routerLink="/articles"> <mat-icon>arrow_back</mat-icon>Go to articles</button><button mat-icon-button color="primary" aria-label="View" ></button>
+
   <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
+    <div class="form-group" >
       <label for="title">Title</label>
       <input type="text" class="form-control" id="title" formControlName="title" placeholder="Enter title">
       <div *ngIf="articleForm.get('title').invalid && articleForm.get('title').touched" class="invalid-feedback">
@@ -20,9 +22,16 @@
         Description is required
       </div>
     </div>
-    <div class="form-group">
-      <label for="exchange">Exchange</label>
-      <input type="text" class="form-control" id="exchange" formControlName="exchange" placeholder="Enter exchange">
+    <div class="form-group" >
+      <label>Exchange:</label>
+    <div>
+      <label >
+        <input type="radio" formControlName="exchange" value="yes"> Yes
+      </label>
+      <label style="padding-left: 16px;">
+        <input type="radio" formControlName="exchange" value="no"> No
+      </label>
+    </div>
       <div *ngIf="articleForm.get('exchange').invalid && articleForm.get('exchange').touched" class="invalid-feedback">
         Exchange is required
       </div>

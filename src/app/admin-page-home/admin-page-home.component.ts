@@ -89,32 +89,7 @@ this.getAll();
     }
 
   }
-  onSubmit(): void {
-    const id = 1;
-    const photo = this.editForm.get('photo').value;
-    const title = this.editForm.get('title').value;
-    const subtitle = this.editForm.get('subtitle').value;
-    const description = this.editForm.get('description').value;
-    const formData = new FormData();
-    formData.append('photo', this.editForm.get('photo').value);
-    formData.append('title', this.editForm.get('title').value);
-    formData.append('description', this.editForm.get('description').value);
-
-    this.newsService.updateHomePage(id, photo, title, subtitle, description)
-      .subscribe(
-        () => {
-          console.log('Page Home section 1 updated successfully!');
-          this.snackBar.open('Page Home section 1 updated successfully!', 'Dismiss', { duration: 3000 });
-        },
-        (error) => {
-          console.error('Failed to update Page Home section 1:', error);
-          // Handle the error 
-          this.snackBar.open('Failed to update Page Home section 1', 'Dismiss', { duration: 3000 });
-        }
-      );
-  }
-
-
+ 
 }
 
 

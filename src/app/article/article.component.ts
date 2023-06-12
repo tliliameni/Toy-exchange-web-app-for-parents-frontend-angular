@@ -5,7 +5,7 @@ import { switchMap, from, tap, delay, map } from 'rxjs';
 import { CategoryService } from '../services/category.service';
 import { Router } from '@angular/router';
 import { PageArticle } from '../Models/PageArticle';
-import { NewsService } from '../services/news.service';
+
 import { ArticlePageService } from '../services/article-page.service';
 import { ProfileService } from '../services/profile.service';
 
@@ -138,12 +138,16 @@ export class ArticleComponent implements OnInit {
     this.router.navigate(['/articledetails', id]);
   }
   searchArticleByCategory(categoryName: string): void {
+    if (categoryName === '') {
+      this.resetFilter();
+      return;
+    }
+
     this.articleService.searchByCategoryName(categoryName)
       .subscribe(
         data => {
           this.articlesList = data;
           for (let article of this.articlesList) {
-
             this.articleService.getImage(article.id)
               .subscribe(
                 image => {
@@ -185,6 +189,11 @@ export class ArticleComponent implements OnInit {
       );
   }*/
   searchArticle(): void {
+    if (this.searchQuery === '') {
+      this.resetFilter();
+      return;
+    }
+
     if (this.selectedCategory) {
       this.searchArticleByCategory(this.selectedCategory);
     } else {
@@ -209,6 +218,14 @@ export class ArticleComponent implements OnInit {
           error => console.log(error)
         );
     }
+  }
+  resetFilter(): void {
+    this.searchQuery = '';
+    // Reset any other filter-related variables or properties if needed
+    // Perform any other actions required to reset the filter
+
+    // Example: Clear the newsList
+    this.articlesList = this.getArticles();
   }
 
 

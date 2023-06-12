@@ -86,8 +86,8 @@ export class AdminPageNewsComponent implements OnInit {
     formData.append('title', this.editForm.get('title').value);
     formData.append('description', this.editForm.get('description').value);
     this.newsService.updatePageContact(1, this.editForm.get('photo').value, this.editForm.get('title').value, this.editForm.get('description').value).subscribe(() => {
-      console.log('Page Contact updated successfully!');
-      this.snackBar.open('Page Contact item updated successfully!', 'Dismiss', { duration: 3000 });
+      console.log('Page  updated successfully!');
+      this.snackBar.open('Page updated successfully!', 'Dismiss', { duration: 3000 });
     });
   }
 }

@@ -68,6 +68,9 @@
   .card-date{
     text-align: left;
   }
+  .containss{
+    margin-left: 40%;
+  }
 .card-title{
   padding-top: 20px;
   font-size: 20px;
@@ -137,6 +140,9 @@
   @media only screen and (max-width: 768px) {
     .card {
       width: 100%;
+    }
+    .containss{
+      margin-left: 23%;
     }
   }
   .banderol{

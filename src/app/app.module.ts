@@ -23,7 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
-import { ChildAddComponent } from './child-add/child-add.component';
+
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CarouselComponent } from './caroussel/caroussel.component';
 import { MatSliderModule } from '@angular/material/slider';
@@ -40,7 +40,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ContactComponent } from './contact/contact.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { AnimatedToyComponent } from './animated-toy/animated-toy.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ArticleComponent } from './article/article.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -48,7 +47,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UsersListComponent } from './users-list/users-list.component';
 import { NgChartsModule } from 'ng2-charts';
-import Chart from 'chart.js/auto';
 import {MatMenuModule} from '@angular/material/menu';
 import { AdminNewsComponent } from './admin-news/admin-news.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -57,7 +55,6 @@ import { EditNewsComponent } from './edit-news/edit-news.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { CommonModule } from '@angular/common';
 import * as CanvasJSAngularChart from '../assets/canvasjs.angular.component';
-import { DashChartsComponent } from './dash-charts/dash-charts.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminArticlesComponent } from './admin-articles/admin-articles.component';
 import { CategoryComponent } from './category/category.component';
@@ -65,7 +62,7 @@ import { httpInterceptorProviders } from './_helpers/http.interceptor';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { LabelModule } from '@progress/kendo-angular-label';
-import { AdminAboutUsComponent } from './admin-about-us/admin-about-us.component';
+
 import { ArticleCreateComponent } from './article-create/article-create.component';
 import { ArticleUpdateComponent } from './article-update/article-update.component';
 import { ArticleDetailsComponent } from './article-details/article-details.component';
@@ -86,7 +83,7 @@ import { AdminPageNewsComponent } from './admin-page-news/admin-page-news.compon
 import { AdminPageMentionLegalComponent } from './admin-page-mention-legal/admin-page-mention-legal.component';
 import { HeaderTestComponent } from './header-test/header-test.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
-import { HomeFinalComponent } from './home-final/home-final.component';
+
 import { AdminPageHomeComponent } from './admin-page-home/admin-page-home.component';
 import { AdminPageHomeEditComponent } from './admin-page-home-edit/admin-page-home-edit.component';
 
@@ -100,7 +97,6 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    ChildAddComponent,
     NotfoundComponent,
     CarouselComponent,
     NewsComponent,
@@ -113,19 +109,16 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
     SearchComponent,
     ContactComponent,
     AboutUsComponent,
-    AnimatedToyComponent,
     HomePageComponent,
     ArticleComponent,
     UsersListComponent,
     AdminNewsComponent,
     ConfirmationDialogComponent,
     EditNewsComponent,
-    DashChartsComponent,
     ProfileComponent,
     AdminArticlesComponent,
     CategoryComponent,
     AddCategoryComponent,
-    AdminAboutUsComponent,
     ArticleCreateComponent,
     ArticleUpdateComponent,
     ArticleDetailsComponent,
@@ -142,7 +135,6 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
     AdminPageMentionLegalComponent,
     HeaderTestComponent,
     EditProfileComponent,
-    HomeFinalComponent,
     AdminPageHomeComponent,
     AdminPageHomeEditComponent,
 

@@ -37,6 +37,8 @@ export class CarouselComponent  implements OnInit {
      .subscribe(
        data => {
          this.articlesList = data;
+
+this.articlesList=this.articlesList.reverse();
          for (let article of this.articlesList) {
            this.articleService.getImage(article.id)
              .subscribe(
@@ -54,7 +56,6 @@ export class CarouselComponent  implements OnInit {
        error => console.log(error)
      );
  }
-
 
  }
 

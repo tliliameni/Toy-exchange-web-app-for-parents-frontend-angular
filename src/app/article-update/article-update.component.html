@@ -5,8 +5,6 @@
   <div class="card">
     <button class="back-button" style="font-family:'Jost';" routerLink="/profile"> <mat-icon>arrow_back</mat-icon>Back to profile</button><button mat-icon-button color="primary" aria-label="View" ></button>
 
-
-    <div class="card-header">
     <div class="card-body">
 <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
   <div>
@@ -40,11 +38,12 @@
       <div *ngIf="editForm.get('exchange').errors['required']" style="color: red">Exchange selection is required.</div>
     </div>
   </div>
+  <label style="margin-top: 6px;margin-bottom:6px;">Change picture:</label>
   <input type="file" (change)="onFileSelect($event)" enctype="multipart/form-data" (change)="showPreview($event)"/>
     <div *ngIf="editForm.get('photo')"style="color:red"></div>
-    <label for="categoryId">Category</label>
+    <label for="categoryId">Change Category</label>
     <select class="form-control" id="categoryId" formControlName="categoryId">
-      <option value="" disabled selected>Select a category</option>
+      <option value="" disabled selected>Select a category:</option>
       <option *ngFor="let category of categories" [value]="category.id">{{ category.nom }}</option>
     </select>
     <div *ngIf="editForm.get('categoryId').invalid && editForm.get('categoryId').touched"
@@ -56,6 +55,6 @@
 
   </div></div>
   </div>
-  </div>
+ 
 
 <app-footer></app-footer>

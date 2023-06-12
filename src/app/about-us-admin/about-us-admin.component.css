@@ -1,85 +1,82 @@
-table {
-  width: 80%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-  margin-left: 18%;
+.container {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  height: auto;
+margin-top: 3%;
+margin-bottom: 3%;
+
+
 }
-.add-btn mat-icon {
-  color: black; /* Change to your desired color */
-}
-.add-btn{
-  margin-left: 100px;
-  background-color: #97aea2;
-  margin-bottom:2%;
-}
-.add-btn:hover {
-  background-color: #88387a; /* Change to your desired hover color */
+label{
+  text-align: left;
 }
 
-thead {
+h2{
+  padding-top: 3%;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 40px;
+  color:#CDA7C6;
+  line-height: 30px;
+  padding-left: 15px;
+  margin-bottom: 3%;
 text-align: center;
+  }
+.card {
+  max-width: 900px;
+
+  width: 70%;
+  background-color: rgb(254, 217, 252);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-td, th {
-  padding: 13px;
-  text-align: center;
+.card-header {
+  padding: 10px;
 }
 
-td {
-  border-top: 1px solid #ccc;
-}
-
-td:first-child {
-  width: 30%;
-  max-width: 200px;
-}
-
-td:nth-child(2) {
-  width: 50%;
-}
-
-td:last-child {
+.back-button {
+  background-color: rgb(231, 193, 211);
+  border: none;
+  cursor: pointer;
   width: 20%;
-  text-align: center;
+  text-align: left;
+  color:#4E7D64;
+  padding-top: 2px;
+  font-family: 'Jost';
+  border-radius: 4px;
+  padding-bottom: 12px;
+}
+.back-button mat-icon{
+  padding-top: 5px;
+  padding-bottom: 7px;
+}
+.back-button:hover{
+  background-color:rgb(208, 164, 184) ;
+}
+.card-body {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin-top: 0;
 }
 
-tr:hover td {
-  background-color: #f5f5f5;
-}
-
-.view-btn {
-  background-color: #4CAF50;
-  color: white;
-
-}
-
-.view-btn:hover {
-  background-color: #3e8e41;
-}
 
 .update-btn {
-  background-color: #008CBA;
+  background-color: #4E7D64;
   color: white;
   margin-left:3% ;
+
 }
 .contain{
   margin-left: 45%;
-  margin-top: 2%;
+
   margin-bottom: 3%;
 }
-.update-btn:hover {
-  background-color: #006580;
-}
 
-.delete-btn {
-  background-color: #f44336;
-  color: white;
-  margin-left:3% ;
-}
-
-.delete-btn:hover {
-  background-color: #d32f2f;
-}
 
 @media (max-width: 768px) {
   table {
@@ -132,67 +129,118 @@ tr:hover td {
     margin: 10px 0;
   }
 }
-/* Form container */
-.form-container {
-  max-width: 400px;
 
-  padding-left: 20%;
-  padding: 20px;
-  background-color: #f2f2f2;
-  border-radius: 5px;
+/* description read more*/
+.truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.back-btn{
+  color: #b1889c; /* Change to your desired hover color */
+}
+.back-btn:hover {
+  background-color: transparent;
+  color: #4E7D64;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width:100%;
+padding-bottom:5% ;
+  margin: 0 auto;
 }
 
-/* Form fields */
-.form-container input[type="text"],
-.form-container textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: none;
-  background-color: #e8e8e8;
-  border-radius: 3px;
-  resize: none;
+label {
+  font-size: 20px;
+  font-family: 'Jost';
+  margin-bottom: 0.5rem;
+  text-align: left;
 }
 
-/* Form submit button */
-.form-container button[type="submit"],
-.form-container button[type="button"] {
+input[type="text"],
+textarea {
   width: 100%;
-  padding: 10px;
-  border: none;
-  background-color: #4CAF50;
+  padding: 0.5rem;
+  font-family: 'Jost';
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1%;
+}
+
+input[type="file"] {
+  margin-bottom: 1rem;
+}
+
+img {
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+button[type="submit"] {
+  background-color: #4E7D64;
   color: #fff;
-  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  margin-top: 5%;
   cursor: pointer;
-  border-radius: 3px;
+  transition: all 0.3s ease;
+  margin-bottom: 4%;
+  font-family: 'Jost';
 }
 
-/* Form submit button hover effect */
-.form-container button[type="submit"]:hover,
-.form-container button[type="button"]:hover {
-  background-color: #45a049;
+button[type="submit"]:hover {
+  background-color: #b1889c;
 }
 
-/* Form cancel button */
-.form-container button[type="button"] {
-  background-color: #ff3333;
-}
+/* Media queries */
 
-/* Form cancel button hover effect */
-.form-container button[type="button"]:hover {
-  background-color: #e60000;
-}
-
-/* Form error message */
-.form-error {
-  color: #ff3333;
-  margin-top: -10px;
-  margin-bottom: 10px;
-}
-
-/* Media query for responsive layout */
-@media screen and (max-width: 600px) {
-  .form-container {
-    max-width: 100%;
+@media only screen and (max-width: 600px) {
+  form {
+    max-width: 400px;
   }
+
+  input[type="text"],
+  textarea {
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  input[type="text"],
+  textarea {
+    font-size: 0.8rem;
+  }
+}
+/* */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10%;
+
+
+padding-left: 20%;
+margin-top: 2%;
+margin-bottom: 2%;
+}
+
+.truncate.expanded {
+  -webkit-line-clamp: initial;
+}
+
+.read-more {
+  display: none;
+}
+
+.card-body:hover .read-more {
+  display: block;
 }

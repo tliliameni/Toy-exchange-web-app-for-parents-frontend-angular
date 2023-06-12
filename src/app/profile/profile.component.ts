@@ -38,11 +38,35 @@ export class ProfileComponent {
     this.router.navigate(['/articledetails', id]);
   }
   articles:Article[];
+  article:Article[];
   constructor(private storageService: StorageService,private articleService:ArticleService,public dialog: MatDialog,
     private router: Router,private snackBar: MatSnackBar,private profileService: ProfileService) { }
 
   ngOnInit(): void {
     this.currentUser = this.storageService.getUser();
+    console.log(this.currentUser.id)
+    this.articleService.getArticlesRecommendations(this.currentUser.id).subscribe(
+      (article: Article[]) => {
+        this.article=article;
+        for (let article of this.article) {
+          console.log("tt"+article)
+          this.articleService.getImage(article.id)
+            .subscribe(
+              image => {
+                const reader = new FileReader();
+                reader.readAsDataURL(image);
+                reader.onload = () => {
+                  article.imagedataUrl = reader.result as string;
+                };
+              },
+              error => console.log(error)
+            );
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
     this.articleService.getUserArticles(this.currentUser.id).subscribe(
       (articles: Article[]) => {
         this.articles = articles;

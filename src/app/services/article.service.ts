@@ -104,6 +104,14 @@ updateArticle(id: number, file: File, title: string, description: string,exchang
 deleteArticles(id: number): Observable<any> {
   return this.http.delete(`${this.baseUrl}/delete/${id}`);
 }
+
+getArticlesRecommendations(userId: number): Observable<Article[]> {
+  // Create an instance of HttpParams to set the request parameters
+  const params = new HttpParams().set('userId', userId.toString());
+
+  // Pass the params object as the second argument to the get() method
+  return this.http.get<Article[]>(`${this.baseUrl}/recommendations`, { params });
+}
 }
 export interface ArticleCount {
   count: number;

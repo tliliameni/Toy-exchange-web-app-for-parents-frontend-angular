@@ -29,7 +29,7 @@
           <a class="nav-link" href="login">Login</a>
         </li>
         <li class="nav-item" *ngIf="isLoggedIn">
-          <button class="btt" mat-icon-button [matMenuTriggerFor]="menu"  ><img [src]="imagedataurl" style="width: 50px;
+          <button class="btt" mat-icon-button [matMenuTriggerFor]="menu"  ><img [src]="imagedataurl|| '../../assets/images/anonymoususer.jpg'" style="width: 50px;
             height: 50px;
             border-radius: 50%;"></button>
         </li>
